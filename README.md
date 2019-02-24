@@ -1,4 +1,4 @@
-# bike-rental
+# bike-rental [![Build Status](https://travis-ci.com/conorH22/bike-rental.svg?token=fVXsuPSqU7jihhnqWKxu&branch=master)](https://travis-ci.com/conorH22/bike-rental)
 Project - Software Architecture
 
 
