@@ -11,7 +11,7 @@ install:
 
 before_script:
   - psql -c 'create database cleanmachinedb;' -U postgres
-   - cat .config/travis.application.properties > src/main/resources/application.properties
+#    - cat .config/travis.application.properties > src/main/resources/application.properties
 
 script:
   - mvn clean package
