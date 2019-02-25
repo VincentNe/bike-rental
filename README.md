@@ -10,4 +10,4 @@ Project - Software Architecture
 username: User
 password: password
 ```
-3. Create a PostreSQL database named `cleanMachineDB`, and assign `User` as the database owner
+3. Create a PostreSQL database named `bikeRental`, and assign `User` as the database owner
