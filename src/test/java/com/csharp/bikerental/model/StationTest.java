@@ -18,7 +18,7 @@ public class StationTest {
     public void countStandsWithoutBikes(){
         Station station = new Station();
         station.addStand(new Stand());
-        assertEquals(0 ,station.getEmptyStands());
+        assertEquals(1 ,station.getEmptyStands());
 
 
     }
@@ -29,7 +29,7 @@ public class StationTest {
         station.addStand(new Stand());
         station.addStand(new Stand());
 
-        assertEquals(2,station.getEmptyStands());
+        assertEquals(3,station.getEmptyStands());
     }
 
 }
