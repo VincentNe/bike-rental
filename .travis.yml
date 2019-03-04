@@ -10,8 +10,8 @@ install:
   - echo "Skip install step"
 
 before_script:
-  - psql -c 'create database cleanmachinedb;' -U postgres
-#    - cat .config/travis.application.properties > src/main/resources/application.properties
+  - psql -c 'create database bikeRental;' -U postgres
+  - cat .config/travis.application.properties > src/main/resources/application.properties
 
 script:
   - mvn clean package
