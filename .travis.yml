@@ -1,5 +1,8 @@
 language: java
 
+env:
+  - DB=pgsql
+
 jdk:
   - oraclejdk8
 
