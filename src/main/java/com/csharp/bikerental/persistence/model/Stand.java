@@ -12,9 +12,21 @@ public class Stand {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    public Stand(){
 
+    //region Gettters and Setters
+    public long getId() {
+        return id;
     }
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    //endregion
+
+    public Stand(){
+    }
+
+
 
     public boolean isEmpty() {
         //TODO check if bike is in stand;

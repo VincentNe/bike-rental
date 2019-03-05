@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Stations Overview</title>
+</head>
+<body>
+    <ul th:each="station : ${stations}">
+        <li>
+            <p th:text="${station.stationName + ' (' + (station.getTotalStands() - station.getEmptyStands())+ '/' + station.getTotalStands() + ')'}"></p>
+            <ul th:each="stand : ${station.stands}">
+                <li>
+                    <p th:text=" ${stand.id}"></p>
+                    <p style="color: red;" th:if=" ${stand.isEmpty()}">Station is empty</p>
+                    <p style="color: red;" th:unless=" ${stand.isEmpty()}">Station is Occupied</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>

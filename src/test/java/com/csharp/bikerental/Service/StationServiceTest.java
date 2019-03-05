@@ -20,7 +20,7 @@ public class StationServiceTest {
 
     @Test
     public void AddStation(){
-        Station station = new Station();
+        Station station = new Station("TestStation 2");
 
         stationService.addStation(station);
 
@@ -28,7 +28,7 @@ public class StationServiceTest {
     }
     @Test
     public void AddStandToStation(){
-        Station station = new Station();
+        Station station = new Station("TestStation");
 
         stationService.addStation(station);
 
