@@ -1,33 +1,40 @@
 package com.csharp.bikerental.persistence.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Entity
 public class Customer extends User{
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    private List<Subscription> subscriptions;
+    @OneToOne
+    private Subscriptions subscriptions;
+
+    //region Getters and Setters
+    public Subscriptions getSubscriptions() {
+        return subscriptions;
+    }
+
+    public void setSubscriptions(Subscriptions subscriptions) {
+        this.subscriptions = subscriptions;
+    }
+    //endregion
 
     public Customer(String name){
         super(name);
+        subscriptions = new Subscriptions();
+    }
 
-
+    @Override
+    public boolean rentbike() {
+        //TODO add bike as rented
+        if(!subscriptions.useSubscription());
+        return true;
     }
 
     public void addSubscription(Subscription subscription){
-        subscriptions.add(subscription);
+        subscriptions.addSubscription(subscription);
     }
-    public boolean hasValidSubscription(){
-        AtomicBoolean result = new AtomicBoolean(false);
-        subscriptions.forEach(subscription -> {
-            if(hasValidSubscription()) result.set(true);
-        });
-        return result.get();
-    }
+
 
 }

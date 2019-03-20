@@ -1,9 +1,28 @@
 package com.csharp.bikerental.persistence.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class PayAsYouGoSubscription extends  Subscription {
 
     private  boolean isBeenUsed;
 
+    //region Getters and Setters
+
+    public boolean isBeenUsed() {
+        return isBeenUsed;
+    }
+
+    public void setBeenUsed(boolean beenUsed) {
+        isBeenUsed = beenUsed;
+    }
+
+
+    //endregion
+
+   public PayAsYouGoSubscription(){
+
+   }
 
     @Override
     public boolean isSubscriptionValid() {
@@ -11,7 +30,7 @@ public class PayAsYouGoSubscription extends  Subscription {
     }
 
     @Override
-    public void useSubscription(Bike bike) {
+    public void useSubscription() {
         isBeenUsed = true;
     }
 }

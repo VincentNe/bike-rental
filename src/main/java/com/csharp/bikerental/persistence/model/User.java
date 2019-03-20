@@ -38,4 +38,6 @@ public abstract class User {
     public User(String name){
         this.name = name;
     }
+
+    public abstract boolean rentbike();
 }

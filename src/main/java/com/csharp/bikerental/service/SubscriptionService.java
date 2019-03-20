@@ -14,17 +14,5 @@ public class SubscriptionService  {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean buySubcription(Long userId , Subscription Subscription) throws Exception {
-        Customer u = (Customer) userRepository.findById(userId).get();
-        if(u==null) throw  new Exception("User does not exist");
-        
-        u.addSubscription(Subscription);
-        return false;
-    }
-    public void getSubscription(){
 
-    }
-    public void getValidSubscription(){
-        //TODO get valid subscription
-    }
 }
