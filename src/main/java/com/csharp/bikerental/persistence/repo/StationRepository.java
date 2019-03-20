@@ -1,6 +1,6 @@
 package com.csharp.bikerental.persistence.repo;
 
-import com.csharp.bikerental.persistence.model.Station;
+import com.csharp.bikerental.persistence.model.Station.Station;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

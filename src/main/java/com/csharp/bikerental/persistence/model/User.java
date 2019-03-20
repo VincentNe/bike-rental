@@ -6,30 +6,36 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Stand {
-
+public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    private String name;
 
-    //region Gettters and Setters
+    //region Getters and Setters
+
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
 
-    //endregion
+    public String getName() {
+        return name;
+    }
 
-    public Stand(){
+    public void setName(String name) {
+        this.name = name;
     }
 
 
+    //endregion
 
-    public boolean isEmpty() {
-        //TODO check if bike is in stand;
-        return  true;
+    public User(){}
+    public User(String name){
+        this.name = name;
     }
 }

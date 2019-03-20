@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="516.625" y="0.0">com.csharp.bikerental.persistence.model.Bike</node>
+    <node x="285.8694444444445" y="90.0">com.csharp.bikerental.persistence.model.Subscription</node>
+    <node x="187.45277777777784" y="90.0">com.csharp.bikerental.persistence.model.User</node>
+    <node x="30.0" y="90.0">com.csharp.bikerental.persistence.model.Station</node>
+    <node x="582.6527777777778" y="200.0">com.csharp.bikerental.persistence.model.PayAsYouGoSubscription</node>
+    <node x="109.37500000000006" y="200.0">com.csharp.bikerental.persistence.repo</node>
+    <node x="0.0" y="435.0">com.csharp.bikerental.config</node>
+    <node x="606.7611111111112" y="90.0">com.csharp.bikerental.persistence.model.EBike</node>
+    <node x="232.37500000000006" y="200.0">com.csharp.bikerental.persistence.model.Customer</node>
+    <node x="64.87500000000006" y="360.0">com.csharp.bikerental.controller</node>
+    <node x="419.8694444444445" y="90.0">com.csharp.bikerental.persistence.model.BikeFactory</node>
+    <node x="410.6527777777778" y="200.0">com.csharp.bikerental.persistence.model.AnnualSubscription</node>
+    <node x="72.37500000000006" y="280.0">com.csharp.bikerental.service</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.csharp.bikerental.persistence.repo" target="com.csharp.bikerental.persistence.model.User">
+      <point x="25.75" y="-15.0" />
+      <point x="186.62500000000006" y="180.0" />
+      <point x="199.28611111111118" y="180.0" />
+      <point x="-23.666666666666657" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.service" target="com.csharp.bikerental.persistence.model.Station">
+      <point x="-28.75" y="-15.0" />
+      <point x="101.12500000000006" y="255.0" />
+      <point x="98.875" y="255.0" />
+      <point x="98.875" y="180.0" />
+      <point x="102.5" y="180.0" />
+      <point x="14.5" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.Station" target="com.csharp.bikerental.persistence.model.Station">
+      <point x="-43.5" y="15.0" />
+      <point x="44.5" y="140.0" />
+      <point x="10.0" y="140.0" />
+      <point x="10.0" y="112.5" />
+      <point x="-58.0" y="7.5" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.repo" target="com.csharp.bikerental.persistence.model.Station">
+      <point x="-25.75" y="-15.0" />
+      <point x="135.12500000000006" y="180.0" />
+      <point x="131.5" y="180.0" />
+      <point x="43.5" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.PayAsYouGoSubscription" target="com.csharp.bikerental.persistence.model.Bike">
+      <point x="45.5" y="-15.0" />
+      <point x="719.1527777777778" y="60.0" />
+      <point x="579.625" y="60.0" />
+      <point x="28.0" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.PayAsYouGoSubscription" target="com.csharp.bikerental.persistence.model.Subscription">
+      <point x="-45.5" y="-15.0" />
+      <point x="628.1527777777778" y="170.0" />
+      <point x="385.6194444444445" y="170.0" />
+      <point x="42.75" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.Subscription" target="com.csharp.bikerental.persistence.model.Bike">
+      <point x="0.0" y="-15.0" />
+      <point x="342.8694444444445" y="50.0" />
+      <point x="523.625" y="50.0" />
+      <point x="-28.0" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.controller" target="com.csharp.bikerental.service">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.Customer" target="com.csharp.bikerental.persistence.model.Subscription">
+      <point x="12.5" y="-15.0" />
+      <point x="294.87500000000006" y="180.0" />
+      <point x="300.1194444444445" y="180.0" />
+      <point x="-42.75" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.Customer" target="com.csharp.bikerental.persistence.model.User">
+      <point x="-12.5" y="-15.0" />
+      <point x="269.87500000000006" y="170.0" />
+      <point x="246.61944444444453" y="170.0" />
+      <point x="23.666666666666686" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.BikeFactory" target="com.csharp.bikerental.persistence.model.Bike">
+      <point x="0.0" y="-15.0" />
+      <point x="474.3694444444445" y="60.0" />
+      <point x="537.625" y="60.0" />
+      <point x="-14.0" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.AnnualSubscription" target="com.csharp.bikerental.persistence.model.Subscription">
+      <point x="-38.0" y="-15.0" />
+      <point x="448.6527777777778" y="180.0" />
+      <point x="357.1194444444445" y="180.0" />
+      <point x="14.25" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.AnnualSubscription" target="com.csharp.bikerental.persistence.model.Bike">
+      <point x="38.0" y="-15.0" />
+      <point x="524.6527777777778" y="180.0" />
+      <point x="539.3694444444445" y="180.0" />
+      <point x="539.3694444444445" y="70.0" />
+      <point x="551.625" y="70.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.persistence.model.EBike" target="com.csharp.bikerental.persistence.model.Bike">
+      <point x="0.0" y="-15.0" />
+      <point x="644.7611111111112" y="70.0" />
+      <point x="565.625" y="70.0" />
+      <point x="14.0" y="15.0" />
+    </edge>
+    <edge source="com.csharp.bikerental.service" target="com.csharp.bikerental.persistence.repo">
+      <point x="28.75" y="-15.0" />
+      <point x="158.62500000000006" y="255.0" />
+      <point x="160.87500000000006" y="255.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="382.5" y="232.5" />
+  <SelectedNodes>
+    <node>com.csharp.bikerental.persistence.model.User</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
