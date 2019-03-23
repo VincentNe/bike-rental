@@ -11,8 +11,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class SubscriptionService  {
 
-    @Autowired
-    private UserRepository userRepository;
-
 
 }

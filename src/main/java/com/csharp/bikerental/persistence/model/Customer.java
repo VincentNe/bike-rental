@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Entity
 public class Customer extends User{
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Subscriptions subscriptions;
 
     //region Getters and Setters
@@ -20,6 +20,9 @@ public class Customer extends User{
     }
     //endregion
 
+    public Customer() {
+
+    }
     public Customer(String name){
         super(name);
         subscriptions = new Subscriptions();

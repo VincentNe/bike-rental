@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public abstract class Subscription {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

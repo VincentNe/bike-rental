@@ -1,19 +1,32 @@
 package com.csharp.bikerental.persistence.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @Entity
+@Table(name = "subscriptions")
 public class Subscriptions {
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "subscriptionsID")
+    private long subscriptionsID;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private List<Subscription> subscriptions;
 
     //region Getters and Setters
+
+    public long getId() {
+        return subscriptionsID;
+    }
+
+    public void setId(long subscriptionsID) {
+        this.subscriptionsID = subscriptionsID;
+    }
+
     public List<Subscription> getSubscriptions() {
         return subscriptions;
     }
