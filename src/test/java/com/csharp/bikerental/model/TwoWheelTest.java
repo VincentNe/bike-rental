@@ -7,42 +7,43 @@ import static org.junit.Assert.assertEquals;
 
 public class TwoWheelTest {
 
-
     @Test
     public void selectBike() {
-        Bike bike = new Bike("Bike");
-        bike.select();
-        assertEquals("Bike", bike.getTwoWheelType());
-
-
+        TwoWheel twoWheel = TwoWheelFactory.CreateTwoWheelItems(TwoWheelFactory.twoWheelType.BIKE);
+        twoWheel.select();
+        assertEquals("Bike", twoWheel.getTwoWheelType());
     }
+
 
     @Test
     public void selectEBike() {
-        EBike ebike = new EBike("EBike");
-        ebike.select();
-        assertEquals("EBike", ebike.getTwoWheelType());
+        TwoWheel twoWheel = TwoWheelFactory.CreateTwoWheelItems(TwoWheelFactory.twoWheelType.EBIKE);
+        twoWheel.select();
+        assertEquals("EBike", twoWheel.getTwoWheelType());
 
 
     }
 
     @Test
     public void selectScooter() {
-        Scooter scooter = new Scooter("Scooter");
-        scooter.select();
-        assertEquals("Scooter", scooter.getTwoWheelType());
+        TwoWheel twoWheel = TwoWheelFactory.CreateTwoWheelItems(TwoWheelFactory.twoWheelType.SCOOTER);
+        twoWheel.select();
+        assertEquals("Scooter", twoWheel.getTwoWheelType());
 
 
     }
 
     @Test
     public void selectEScooter() {
-        EScooter eScooter = new EScooter("EScooter");
-        eScooter.select();
-        assertEquals("EScooter", eScooter.getTwoWheelType());
+        TwoWheel twoWheel = TwoWheelFactory.CreateTwoWheelItems(TwoWheelFactory.twoWheelType.ESCOOTER);
+        twoWheel.select();
+        assertEquals("EScooter", twoWheel.getTwoWheelType());
 
 
     }
+
+
+
 
 
 

@@ -13,7 +13,7 @@ public class Bike extends TwoWheel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    String twoWheelType;
+     private String twoWheelType = "Bike";
 
     public Bike(String twoWheelType) {
         this.twoWheelType  = twoWheelType;
@@ -46,4 +46,5 @@ public class Bike extends TwoWheel {
     public void select() {
         System.out.println("Bike");
     }
+
 }

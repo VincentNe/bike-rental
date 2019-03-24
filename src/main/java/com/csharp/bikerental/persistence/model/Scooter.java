@@ -12,7 +12,7 @@ public class Scooter extends TwoWheel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    String twoWheelType;
+    private String twoWheelType = "Scooter";
 
     public Scooter(String twoWheelType) {
         this.twoWheelType  = twoWheelType;

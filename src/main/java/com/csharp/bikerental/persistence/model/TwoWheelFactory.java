@@ -1,25 +1,31 @@
 package com.csharp.bikerental.persistence.model;
 
 
-public class TwoWheelFactory {
+public abstract class TwoWheelFactory {
 
 
-//    public enum TwoWheelType {
-//        BIKE, EBIKE, SCOOTER, ESCOOTER
-//
-//    }
+    public enum twoWheelType {
+        BIKE, EBIKE, SCOOTER, ESCOOTER
 
-    public TwoWheel CreateTwoWheelItems(String type) {
-        switch (type) {
-            case "Bike":
+    }
+
+    public static TwoWheel CreateTwoWheelItems( twoWheelType twotype) {
+        switch ( twotype) {
+            case BIKE:
                 return new Bike();
-            case "EBike":
+            case EBIKE:
                 return new EBike();
-            case "Scooter":
+
+            case SCOOTER:
                 return new Scooter();
-            case "EScooter":
+
+            case ESCOOTER:
                 return new EScooter();
+             default:
+                 System.out.println("no response");
+                 break;
         }
+
         return null;
     }
 

@@ -28,7 +28,7 @@ public abstract class TwoWheel {
         this.id = id;
     }
 
-    public void select(){}
+
 
     public String getTwoWheelType() {
         return twoWheelType;
@@ -38,4 +38,9 @@ public abstract class TwoWheel {
     public void setTwoWheelType(String twoWheelType) {
         this.twoWheelType = twoWheelType;
     }
+    public abstract void select();
+
+
+
+
 }
