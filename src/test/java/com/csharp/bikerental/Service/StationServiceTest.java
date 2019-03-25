@@ -1,8 +1,8 @@
 package com.csharp.bikerental.Service;
 
 import com.csharp.bikerental.BikeRentalApplication;
-import com.csharp.bikerental.persistence.model.Stand;
-import com.csharp.bikerental.persistence.model.Station;
+import com.csharp.bikerental.persistence.model.Station.Stand;
+import com.csharp.bikerental.persistence.model.Station.Station;
 import com.csharp.bikerental.service.StationService;
 import org.junit.Assert;
 import org.junit.Test;

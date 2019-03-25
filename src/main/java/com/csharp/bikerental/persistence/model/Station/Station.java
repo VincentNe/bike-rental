@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.Station;
 
 import javax.persistence.*;
 import java.util.ArrayList;
