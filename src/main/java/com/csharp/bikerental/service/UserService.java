@@ -1,7 +1,6 @@
 package com.csharp.bikerental.service;
 
 import com.csharp.bikerental.persistence.model.*;
-import com.csharp.bikerental.persistence.model.Employe;
 import com.csharp.bikerental.persistence.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
