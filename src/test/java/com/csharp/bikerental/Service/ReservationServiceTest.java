@@ -4,7 +4,7 @@ import com.csharp.bikerental.BikeRentalApplication;
 import com.csharp.bikerental.persistence.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Employee;
-import com.csharp.bikerental.persistence.model.TwoWheel;
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.model.enums.ReservationPeriodicity;
 import com.csharp.bikerental.persistence.model.reservation.Reservation;
 import com.csharp.bikerental.persistence.repo.ReservationRepository;
@@ -28,8 +28,7 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.transaction.Transactional;
 import java.util.Date;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BikeRentalApplication.class)
@@ -84,6 +83,16 @@ public class ReservationServiceTest {
 
         assertNotNull(oneTimeReservationDto);
         assertEquals("customer", oneTimeReservationDto.getUserDto().getName());
+
+        TwoWheel twoWheel = twoWheelRepository.findById("1").orElse(null);
+
+        Date inbetween = new Date();
+        inbetween.setTime(inbetween.getTime() + 10000);
+        assertNotNull(reservationService.checkIfMachineReserved(twoWheel, inbetween));
+
+        Date notInbetween = new Date();
+        notInbetween.setTime(notInbetween.getTime() + 7200000);
+        assertNull(reservationService.checkIfMachineReserved(twoWheel, notInbetween));
 
 
     }

@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.TwoWheel;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,27 +6,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Scooter extends TwoWheel {
+public class Bike extends TwoWheel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private String id;
 
-    private String twoWheelType = "Scooter";
+     private String twoWheelType = "Bike";
 
-    public Scooter(String twoWheelType) {
+    public Bike(String twoWheelType) {
         this.twoWheelType  = twoWheelType;
     }
 
-    public Scooter(){}
+    public Bike(){}
+
 
     //region Getters and Setters
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -42,8 +43,7 @@ public class Scooter extends TwoWheel {
 
     @Override
     public void select() {
-        System.out.println("Scooter");
+        System.out.println("Bike");
     }
-
 
 }

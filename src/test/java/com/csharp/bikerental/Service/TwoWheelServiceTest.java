@@ -1,7 +1,6 @@
 package com.csharp.bikerental.Service;
 
 import com.csharp.bikerental.BikeRentalApplication;
-import com.csharp.bikerental.persistence.model.TwoWheel;
 import com.csharp.bikerental.service.TwoWheelService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

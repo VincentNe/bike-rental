@@ -2,6 +2,7 @@ package com.csharp.bikerental.controller;
 
 import com.csharp.bikerental.persistence.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
+import com.csharp.bikerental.persistence.model.Employee;
 import com.csharp.bikerental.persistence.model.User;
 import com.csharp.bikerental.service.ReservationService;
 import com.csharp.bikerental.service.UserService;
@@ -11,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
-@CrossOrigin(origins = "http://localhost:8100" )
+@Controller
 public class ReservationController {
 
     @Autowired
@@ -28,30 +29,22 @@ public class ReservationController {
     ReservationService reservationService;
 
     @RequestMapping(path="/reservation/onetime", method = RequestMethod.POST)
-    public ResponseEntity<?> createOneTimeReservation(@RequestBody @Valid ReserveOneTimeDto reserveOneTimeDto) {
+    public ResponseEntity<?> createOneTimeReservation(@RequestBody @Valid ReserveOneTimeDto reserveOneTimeDto, Customer customer) {
         try {
-
-
-        } catch (ServiceException e) {
-            Map<String, String> response = new HashMap<>();
-            response.put("error", e.getMessage());
-            return ResponseEntity.badRequest().body(response);
+            reservationService.createOneTimeReservation(customer, reserveOneTimeDto);
+            return ResponseEntity.ok().body(reserveOneTimeDto);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(500).body(null);
         }
-        return  null;
     }
 
 
     @RequestMapping(path="/reservation/maintenance", method = RequestMethod.POST)
-    public ResponseEntity<?> createMaintenanceReservation(@RequestBody @Valid ReserveMaintenanceDto reserveMaintenanceDto) {
+    public ResponseEntity<?> createMaintenanceReservation(@RequestBody @Valid Employee employee,ReserveMaintenanceDto reserveMaintenanceDto) {
         try {
-
-            //TODO need spring secuirity
-
-
-
+            reservationService.createMaintenanceReservation(employee,reserveMaintenanceDto);
+            return ResponseEntity.ok().body(reserveMaintenanceDto);
         } catch (ServiceException e) {
             Map<String, String> response = new HashMap<>();
             response.put("error", e.getMessage());
@@ -60,17 +53,15 @@ public class ReservationController {
             e.printStackTrace();
             return ResponseEntity.status(500).body(null);
         }
-        return  null;
+
     }
 
-    @PreAuthorize("hasAnyRole('MAINTAINER','ADMINISTRATOR','CUSTOMER')")
+
     @RequestMapping(path="/reservation/repeating", method = RequestMethod.POST)
-    public ResponseEntity<?> createRepeatingReservation(@RequestBody @Valid ReserveRepeatingDto reserveRepeatingDto) {
+    public ResponseEntity<?> createRepeatingReservation(@RequestBody @Valid User user,ReserveRepeatingDto reserveRepeatingDto) {
         try {
-
-
-
-
+            reservationService.createRepeatingReservation(user,reserveRepeatingDto);
+            return ResponseEntity.ok().body(reserveRepeatingDto);
         } catch (ServiceException e) {
             Map<String, String> response = new HashMap<>();
             response.put("error", e.getMessage());
@@ -79,7 +70,6 @@ public class ReservationController {
             e.printStackTrace();
             return ResponseEntity.status(500).body(null);
         }
-        return  null;
     }
 
 }

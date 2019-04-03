@@ -1,9 +1,10 @@
 package com.csharp.bikerental.persistence.dto;
 
-import com.csharp.bikerental.persistence.model.TwoWheel;
+
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 
 public class TwoWheelDto {
-    private Long id;
+    private String id;
     private String twoWheelType;
 
     public TwoWheelDto(TwoWheel twoWheel) {
@@ -11,11 +12,11 @@ public class TwoWheelDto {
         this.twoWheelType = twoWheel.getTwoWheelType();
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

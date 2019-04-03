@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReserveMaintenanceDto {
     private Date startDate;
     private Date endDate;
-    private Long twoWheelId;
+    private String twoWheelId;
 
     public Date getStartDate() {
         return startDate;
@@ -23,11 +23,11 @@ public class ReserveMaintenanceDto {
         this.endDate = endDate;
     }
 
-    public Long getTwoWheelId() {
+    public String getTwoWheelId() {
         return twoWheelId;
     }
 
-    public void setTwoWheelId(Long twoWheelId) {
+    public void setTwoWheelId(String twoWheelId) {
         this.twoWheelId = twoWheelId;
     }
 }

@@ -3,7 +3,8 @@ package com.csharp.bikerental.service;
 import com.csharp.bikerental.persistence.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Employee;
-import com.csharp.bikerental.persistence.model.TwoWheel;
+
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.model.User;
 import com.csharp.bikerental.persistence.model.reservation.MaintenanceReservation;
 import com.csharp.bikerental.persistence.model.reservation.OneTimeReservation;
@@ -27,7 +28,7 @@ public  class ReservationService{
     TwoWheelRepository twoWheelRepository;
 
     public OneTimeReservationDto createOneTimeReservation(Customer customer, ReserveOneTimeDto reserveOneTimeDto) throws ServiceException {
-        TwoWheel twoWheel = twoWheelRepository.findById(reserveOneTimeDto.getTwoWheelId()).orElse(null);
+        TwoWheel twoWheel = twoWheelRepository.findById(reserveOneTimeDto.getTwoWheelId().toString()).orElse(null);
 
         if(twoWheel == null) {
             throw new ServiceException("twoWheel not found");

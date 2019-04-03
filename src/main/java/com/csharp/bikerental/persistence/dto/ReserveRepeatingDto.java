@@ -5,16 +5,16 @@ import com.csharp.bikerental.persistence.model.enums.ReservationPeriodicity;
 import java.util.Date;
 
 public class ReserveRepeatingDto {
-    private Long twoWheelId;
+    private String twoWheelId;
     private ReservationPeriodicity reservationPeriodicity;
     private Date startDate;
     private Date endDate;
 
-    public Long getTwoWheelId() {
+    public String getTwoWheelId() {
         return twoWheelId;
     }
 
-    public void setTwoWheelId(Long twoWheelId) {
+    public void setTwoWheelId(String twoWheelId) {
         this.twoWheelId = twoWheelId;
     }
 

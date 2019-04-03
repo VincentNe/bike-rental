@@ -1,6 +1,7 @@
 package com.csharp.bikerental.model;
 
-import com.csharp.bikerental.persistence.model.*;
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheelFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

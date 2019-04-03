@@ -1,6 +1,6 @@
 package com.csharp.bikerental.persistence.dto;
 
-import com.csharp.bikerental.persistence.model.TwoWheel;
+
 import com.csharp.bikerental.persistence.model.User;
 import com.csharp.bikerental.persistence.model.reservation.MaintenanceReservation;
 
