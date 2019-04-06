@@ -6,6 +6,12 @@ import javax.persistence.Entity;
 public class Employe extends  User{
 
 
+    public Employe() {
+
+    }
+    public Employe(String name,String username,String password){
+        super(name, username,password);
+    }
 
     @Override
     public boolean rentbike() {

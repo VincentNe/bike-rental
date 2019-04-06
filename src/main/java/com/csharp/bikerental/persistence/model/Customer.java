@@ -23,8 +23,8 @@ public class Customer extends User{
     public Customer() {
 
     }
-    public Customer(String name){
-        super(name);
+    public Customer(String name,String username,String password){
+        super(name, username,password);
         subscriptions = new Subscriptions();
     }
 

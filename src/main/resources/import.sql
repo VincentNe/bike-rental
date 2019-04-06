@@ -14,3 +14,5 @@ INSERT INTO station_stands (station_id, stands_id) VALUES (1, 2);
 INSERT INTO station_stands (station_id, stands_id) VALUES (1, 3);
 INSERT INTO station_stands (station_id, stands_id) VALUES (2, 4);
 
+
+
