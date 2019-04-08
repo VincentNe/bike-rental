@@ -36,7 +36,7 @@ public class SubscriptionServiceTest {
     public void buyAPayAsYouGoSubscriptionAsACustomer(){
 
 
-        userService.buySubcription(u.getId(),new Payment(), SubscriptionEnum.PayAsYouGo);
+        userService.buySubcription(u.getUsername(),new Payment(), SubscriptionEnum.PayAsYouGo);
         Long userId   = u.getId();
         User u = userService.getUser(userId);
         Customer customer = (Customer) u;
@@ -53,7 +53,7 @@ public class SubscriptionServiceTest {
 
     @Test
     public void buyAAnnualSubscriptionAsACustomer(){
-        userService.buySubcription(u.getId(),new Payment(), SubscriptionEnum.AnnualSubscription);
+        userService.buySubcription(u.getUsername(),new Payment(), SubscriptionEnum.AnnualSubscription);
 
         Subscriptions subscriptions = ((Customer) userService.getUser(u.getId())).getSubscriptions();
         AtomicBoolean containsSubscription = new AtomicBoolean(false);

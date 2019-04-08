@@ -8,8 +8,14 @@ import com.csharp.bikerental.persistence.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class SubscriptionService  {
+public class SubscriptionService   {
+
+    @Autowired
+    private UserService userService;
+
 
 
 }

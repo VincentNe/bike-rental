@@ -5,32 +5,48 @@ import javax.persistence.Entity;
 @Entity
 public class PayAsYouGoSubscription extends  Subscription {
 
-    private  boolean isBeenUsed;
 
     //region Getters and Setters
 
-    public boolean isBeenUsed() {
-        return isBeenUsed;
-    }
-
-    public void setBeenUsed(boolean beenUsed) {
-        isBeenUsed = beenUsed;
-    }
 
 
     //endregion
 
-   public PayAsYouGoSubscription(){
+    public PayAsYouGoSubscription(){
 
-   }
+    }
+    public PayAsYouGoSubscription(int maxConcurrentUsers){
+       super(maxConcurrentUsers);
+
+    }
 
     @Override
     public boolean isSubscriptionValid() {
-        return !isBeenUsed;
+        return false;
+    }
+
+    @Override
+    public boolean canSubscriptionBeUsed() {
+        if(maxConcurrentUsers >= currentUses) return true;
+        return false;
     }
 
     @Override
     public void useSubscription() {
-        isBeenUsed = true;
+        if(maxConcurrentUsers > currentUses) currentUses++;
+        else{
+            System.out.print("Max Concurrent uses is reached");
+        }
+    }
+
+    @Override
+    public void stopUsingSubscription() {
+        if(currentUses>0)return;
+        currentUses--;
+    }
+
+    @Override
+    public int timesUsed() {
+        return 0;
     }
 }

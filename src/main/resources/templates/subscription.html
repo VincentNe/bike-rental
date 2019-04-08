@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <div th:replace="index.html :: imports"></div>
+</head>
+<body>
+<div th:replace="index.html :: header"></div>
+<table class="table" table-striped>
+    <thead>
+    <tr>
+        <th scope="col">Type</th>
+        <th scope="col">IsExpired</th>
+        <th scope="col">IsAvailable</th>
+        <th scope="col"># Used</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="subscription : ${subscriptions}">
+        <td >
+            <!--
+            <p th:if="${subscription instanceof T(com.csharp.bikerental.persistence.model.PayAsYouGoSubscription)" th:text="Pay as You Go"></p>
+            <p th:if="${subscription instanceof T(com.csharp.bikerental.persistence.model.AnnualSubscription)" th:text="Annual Subscription"></p>
+            -->
+        </td>
+        <td th:text=" ${subscription.isSubscriptionValid()}"></td>
+        <td th:text=" ${subscription.canSubscriptionBeUsed()}"></td>
+        <td th:text=" ${subscription.timesUsed()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="addSubscription">
+
+</div>
+</body>
+</html>

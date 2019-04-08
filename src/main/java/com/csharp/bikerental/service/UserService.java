@@ -11,24 +11,28 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean buySubcription(Long userId,Payment payment, SubscriptionEnum subscriptionEnum){
-        Customer u = (Customer) userRepository.findById(userId).get();
+    public boolean buySubcription(String username,Payment payment, SubscriptionEnum subscriptionEnum){
+        Customer u = (Customer) userRepository.findByUsername(username);
         if(u==null) return false;
         Subscription subscription = null;
 
-        //TODO change to Factory method
+        //TODO change to Factory method or Prototype
         switch (subscriptionEnum){
             case AnnualSubscription:
-                subscription = new AnnualSubscription(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()+31536000000l));
+                subscription = new AnnualSubscription(1,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()+31536000000l));
                 break;
             case PayAsYouGo:
-                subscription = new PayAsYouGoSubscription();
+                subscription = new PayAsYouGoSubscription(1);
+                break;
+            case MonthSubscription:
+                subscription = new AnnualSubscription(1, new Date(18,8,1),new Date(18,9,1));
                 break;
         }
         u.addSubscription(subscription);
@@ -71,5 +75,17 @@ public class UserService implements UserDetailsService {
         }
 
         return builder.build();
+    }
+
+
+    public List<Subscription> getUserSubscriptions(String username) {
+        User user = userRepository.findByUsername(username);
+        Customer customer = null;
+        try {
+            customer = (Customer) user;
+        }catch (ClassCastException e){
+            System.out.println("Not a correct customer");
+        }
+        return customer.getSubscriptions().getSubscriptions();
     }
 }
