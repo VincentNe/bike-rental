@@ -1,7 +1,6 @@
 package com.csharp.bikerental.service;
 
-import com.csharp.bikerental.persistence.model.TwoWheel;
-import com.csharp.bikerental.persistence.model.TwoWheelFactory;
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

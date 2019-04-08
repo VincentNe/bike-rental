@@ -1,5 +1,7 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.TwoWheel;
 
+
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 
 public abstract class TwoWheelFactory {
 
@@ -9,7 +11,7 @@ public abstract class TwoWheelFactory {
 
     }
 
-    public static TwoWheel CreateTwoWheelItems( twoWheelType twotype) {
+    public static TwoWheel CreateTwoWheelItems(twoWheelType twotype) {
         switch ( twotype) {
             case BIKE:
                 return new Bike();
