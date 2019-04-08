@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.TwoWheel;
 
 
 import javax.persistence.Entity;
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public abstract class TwoWheel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private String id;
     String twoWheelType;
 
    public TwoWheel(){}
@@ -20,11 +20,11 @@ public abstract class TwoWheel {
 
     // Getters and Setters
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -39,6 +39,8 @@ public abstract class TwoWheel {
         this.twoWheelType = twoWheelType;
     }
     public abstract void select();
+
+
 
 
 

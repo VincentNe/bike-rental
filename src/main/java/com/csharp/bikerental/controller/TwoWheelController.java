@@ -1,10 +1,9 @@
 package com.csharp.bikerental.controller;
 
-import com.csharp.bikerental.persistence.model.Bike;
-import com.csharp.bikerental.persistence.model.TwoWheel;
+
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import com.csharp.bikerental.service.TwoWheelService;
-import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,9 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 @Controller

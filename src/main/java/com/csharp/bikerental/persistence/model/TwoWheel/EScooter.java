@@ -1,4 +1,6 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.TwoWheel;
+
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +12,7 @@ public class EScooter extends Scooter implements Rechargeable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
+    private String id;
     private String twoWheelType ="EScooter";
     private String ExpectedKilometers;
    private String BatteryLevel;
@@ -26,12 +27,32 @@ public class EScooter extends Scooter implements Rechargeable {
 
     //region Getters and Setters
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public void ExpectedKilometers() {
+
+    }
+
+    @Override
+    public void BatteryLevel() {
+
+    }
+
+    @Override
+    public void Watt() {
+
+    }
+
+    @Override
+    public void Capacity() {
+
     }
 
     public String getExpectedKilometers() {
@@ -64,26 +85,6 @@ public class EScooter extends Scooter implements Rechargeable {
 
     public void setWatt(String watt) {
         Watt = watt;
-    }
-
-    @Override
-    public void ExpectedKilometers() {
-
-    }
-
-    @Override
-    public void BatteryLevel() {
-
-    }
-
-    @Override
-    public void Watt() {
-
-    }
-
-    @Override
-    public void Capacity() {
-
     }
 
     @Override
