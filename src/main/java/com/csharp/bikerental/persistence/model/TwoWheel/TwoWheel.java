@@ -12,6 +12,10 @@ public abstract class TwoWheel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     String twoWheelType;
+    private String seat;
+    private String light;
+    private String Speedometer;
+
 
    public TwoWheel(){}
     public TwoWheel(String twoWheelType){
@@ -41,8 +45,28 @@ public abstract class TwoWheel {
     public abstract void select();
 
 
+    public String getSeat() {
+        return seat;
+    }
 
+    public void setSeat(String seat) {
+        this.seat = seat;
+    }
 
+    public String getLight() {
+        return light;
+    }
 
+    public void setLight(String light) {
+        this.light = light;
+    }
+
+    public String getSpeedometer() {
+        return Speedometer;
+    }
+
+    public void setSpeedometer(String speedometer) {
+        Speedometer = speedometer;
+    }
 
 }

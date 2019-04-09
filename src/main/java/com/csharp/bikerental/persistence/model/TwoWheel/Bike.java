@@ -11,6 +11,9 @@ public class Bike extends TwoWheel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
+    private String seat;
+    private String light;
+    private String Speedometer;
 
      private String twoWheelType = "Bike";
 
@@ -46,4 +49,33 @@ public class Bike extends TwoWheel {
         System.out.println("Bike");
     }
 
+    @Override
+    public String getSeat() {
+        return seat;
+    }
+
+    @Override
+    public void setSeat(String seat) {
+        this.seat = seat;
+    }
+
+    @Override
+    public String getLight() {
+        return light;
+    }
+
+    @Override
+    public void setLight(String light) {
+        this.light = light;
+    }
+
+    @Override
+    public String getSpeedometer() {
+        return Speedometer;
+    }
+
+    @Override
+    public void setSpeedometer(String speedometer) {
+        Speedometer = speedometer;
+    }
 }

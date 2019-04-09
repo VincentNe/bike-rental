@@ -18,6 +18,9 @@ public class EScooter extends Scooter implements Rechargeable {
    private String BatteryLevel;
     private String Watt;
     private String Capacity;
+    private String seat;
+    private String light;
+    private String Speedometer;
 
     public EScooter(String twoWheelType) {
         this.twoWheelType  = twoWheelType;
@@ -100,5 +103,35 @@ public class EScooter extends Scooter implements Rechargeable {
     @Override
     public void select() {
         System.out.println("EScoter");
+    }
+
+    @Override
+    public String getSeat() {
+        return seat;
+    }
+
+    @Override
+    public void setSeat(String seat) {
+        this.seat = seat;
+    }
+
+    @Override
+    public String getLight() {
+        return light;
+    }
+
+    @Override
+    public void setLight(String light) {
+        this.light = light;
+    }
+
+    @Override
+    public String getSpeedometer() {
+        return Speedometer;
+    }
+
+    @Override
+    public void setSpeedometer(String speedometer) {
+        Speedometer = speedometer;
     }
 }
