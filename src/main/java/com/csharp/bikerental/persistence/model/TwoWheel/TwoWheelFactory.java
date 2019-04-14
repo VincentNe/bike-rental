@@ -24,7 +24,7 @@ public abstract class TwoWheelFactory {
             case ESCOOTER:
                 return new EScooter();
              default:
-                 System.out.println("no response");
+                 System.out.println("no bike type selected please try again");
                  break;
         }
 

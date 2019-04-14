@@ -11,8 +11,8 @@ public class Bike extends TwoWheel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    private String seat;
-    private String light;
+    private Boolean seat;
+    private Boolean lights;
     private String Speedometer;
 
      private String twoWheelType = "Bike";
@@ -26,13 +26,7 @@ public class Bike extends TwoWheel {
 
     //region Getters and Setters
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     @Override
     public String getTwoWheelType() {
@@ -50,23 +44,29 @@ public class Bike extends TwoWheel {
     }
 
     @Override
-    public String getSeat() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public Boolean getSeat() {
         return seat;
     }
 
-    @Override
-    public void setSeat(String seat) {
+    public void setSeat(Boolean seat) {
         this.seat = seat;
     }
 
-    @Override
-    public String getLight() {
-        return light;
+    public Boolean getLights() {
+        return lights;
     }
 
-    @Override
-    public void setLight(String light) {
-        this.light = light;
+    public void setLights(Boolean lights) {
+        this.lights = lights;
     }
 
     @Override
@@ -74,7 +74,6 @@ public class Bike extends TwoWheel {
         return Speedometer;
     }
 
-    @Override
     public void setSpeedometer(String speedometer) {
         Speedometer = speedometer;
     }
