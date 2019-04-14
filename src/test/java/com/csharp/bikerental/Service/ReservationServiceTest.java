@@ -1,17 +1,13 @@
 package com.csharp.bikerental.Service;
 
 import com.csharp.bikerental.BikeRentalApplication;
-import com.csharp.bikerental.persistence.dto.*;
+import com.csharp.bikerental.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
-import com.csharp.bikerental.persistence.model.Employee;
 import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
-import com.csharp.bikerental.persistence.model.enums.ReservationPeriodicity;
-import com.csharp.bikerental.persistence.model.reservation.Reservation;
 import com.csharp.bikerental.persistence.repo.ReservationRepository;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import com.csharp.bikerental.persistence.repo.UserRepository;
 import com.csharp.bikerental.service.ReservationService;
-import org.hibernate.service.spi.ServiceException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -71,7 +67,7 @@ public class ReservationServiceTest {
         userRepository.save(customer);
 
         ReserveOneTimeDto reserveOneTimeDto = new ReserveOneTimeDto();
-        reserveOneTimeDto.setTwoWheelId(1L);
+        reserveOneTimeDto.setTwoWheelId(2L);
 
         Date date = new Date();
         reserveOneTimeDto.setStartDate(date);
@@ -88,11 +84,11 @@ public class ReservationServiceTest {
 
         Date inbetween = new Date();
         inbetween.setTime(inbetween.getTime() + 10000);
-        assertNotNull(reservationService.checkIfMachineReserved(twoWheel, inbetween));
+        assertNotNull(reservationService.checkIfTwoWheelReserved(twoWheel, inbetween));
 
         Date notInbetween = new Date();
         notInbetween.setTime(notInbetween.getTime() + 7200000);
-        assertNull(reservationService.checkIfMachineReserved(twoWheel, notInbetween));
+        assertNull(reservationService.checkIfTwoWheelReserved(twoWheel, notInbetween));
 
 
     }

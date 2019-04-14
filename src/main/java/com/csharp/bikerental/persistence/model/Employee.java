@@ -6,10 +6,10 @@ import javax.persistence.Entity;
 public class Employee extends  User{
 
 
-    public Employe() {
+    public Employee() {
 
     }
-    public Employe(String name,String username,String password){
+    public Employee(String name,String username,String password){
         super(name, username,password);
     }
 

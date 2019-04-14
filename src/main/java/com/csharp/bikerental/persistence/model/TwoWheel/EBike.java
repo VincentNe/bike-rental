@@ -13,12 +13,16 @@ public class EBike extends Bike implements Rechargeable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+
     String twoWheelType = "EBike";
     private String ExpectedKilometers;
     private String BatteryLevel;
     private String Watt;
     private String Capacity;
+    private String id;
+    private Boolean seat;
+    private Boolean lights;
+    private String Speedometer;
 
     public EBike(String twoWheelType) {
         this.twoWheelType  = twoWheelType;
@@ -30,13 +34,47 @@ public class EBike extends Bike implements Rechargeable {
 
     //region Getters and Setters
 
+
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public Boolean getSeat() {
+        return seat;
+    }
+
+    @Override
+    public void setSeat(Boolean seat) {
+        this.seat = seat;
+    }
+
+    @Override
+    public Boolean getLights() {
+        return lights;
+    }
+
+    @Override
+    public void setLights(Boolean lights) {
+        this.lights = lights;
+    }
+
+    @Override
+    public String getSpeedometer() {
+        return Speedometer;
+    }
+
+    @Override
+    public void setSpeedometer(String speedometer) {
+        Speedometer = speedometer;
+    }
+
     @Override
     public void ExpectedKilometers() {
 
@@ -103,4 +141,5 @@ public class EBike extends Bike implements Rechargeable {
     public void select() {
         System.out.println("EBike");
     }
+
 }

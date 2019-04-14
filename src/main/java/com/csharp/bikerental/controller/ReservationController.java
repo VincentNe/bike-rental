@@ -1,17 +1,14 @@
 package com.csharp.bikerental.controller;
 
-import com.csharp.bikerental.persistence.dto.*;
+import com.csharp.bikerental.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Employee;
 import com.csharp.bikerental.persistence.model.User;
 import com.csharp.bikerental.service.ReservationService;
 import com.csharp.bikerental.service.UserService;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

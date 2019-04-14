@@ -1,6 +1,6 @@
 package com.csharp.bikerental.persistence.model;
 
-import com.sun.xml.internal.ws.message.PayloadElementSniffer;
+//import com.sun.xml.internal.ws.message.PayloadElementSniffer;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

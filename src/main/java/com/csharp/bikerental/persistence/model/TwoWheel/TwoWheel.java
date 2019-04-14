@@ -10,8 +10,16 @@ import javax.persistence.Id;
 public abstract class TwoWheel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+
+    private String identifier;
+
     String twoWheelType;
+    private  String id;
+    private Boolean seat;
+    private Boolean lights;
+    private String Speedometer;
+
+
 
    public TwoWheel(){}
     public TwoWheel(String twoWheelType){
@@ -19,6 +27,7 @@ public abstract class TwoWheel {
     }
 
     // Getters and Setters
+
 
     public String getId() {
         return id;
@@ -28,7 +37,29 @@ public abstract class TwoWheel {
         this.id = id;
     }
 
+    public Boolean getSeat() {
+        return seat;
+    }
 
+    public void setSeat(Boolean seat) {
+        this.seat = seat;
+    }
+
+    public Boolean getLights() {
+        return lights;
+    }
+
+    public void setLights(Boolean lights) {
+        this.lights = lights;
+    }
+
+    public String getSpeedometer() {
+        return Speedometer;
+    }
+
+    public void setSpeedometer(String speedometer) {
+        Speedometer = speedometer;
+    }
 
     public String getTwoWheelType() {
         return twoWheelType;
@@ -40,9 +71,11 @@ public abstract class TwoWheel {
     }
     public abstract void select();
 
+    public String getIdentifier() {
+        return identifier;
+    }
 
-
-
-
-
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 }

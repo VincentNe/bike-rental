@@ -1,6 +1,6 @@
 package com.csharp.bikerental.service;
 
-import com.csharp.bikerental.persistence.dto.*;
+import com.csharp.bikerental.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Employee;
 
@@ -34,7 +34,8 @@ public  class ReservationService{
             throw new ServiceException("twoWheel not found");
         }
 
-        if(this.checkIfMachineReserved(twoWheel, reserveOneTimeDto.getStartDate()) != null) {
+
+        if(this.checkIfTwoWheelReserved(twoWheel, reserveOneTimeDto.getStartDate()) != null) {
             throw new ServiceException("twoWheel already reserved at this date");
         }
 
@@ -50,7 +51,7 @@ public  class ReservationService{
             throw new ServiceException("twoWheel not found");
         }
 
-        if(this.checkIfMachineReserved(twoWheel, reserveMaintenanceDto.getStartDate()) != null) {
+        if(this.checkIfTwoWheelReserved(twoWheel, reserveMaintenanceDto.getStartDate()) != null) {
             throw new ServiceException("twoWheel already reserved at this date");
         }
 
@@ -66,7 +67,7 @@ public  class ReservationService{
             throw new ServiceException("twoWheel not found");
         }
 
-        if(this.checkIfMachineReserved(twoWheel, reserveRepeatingDto.getStartDate()) != null) {
+        if(this.checkIfTwoWheelReserved(twoWheel, reserveRepeatingDto.getStartDate()) != null) {
             throw new ServiceException("twoWheel already reserved at this date");
         }
 
@@ -75,7 +76,7 @@ public  class ReservationService{
         return new RepeatingReservationDto(reservationRepository.save(repeatingReservation));
     }
 
-    public Reservation checkIfMachineReserved(TwoWheel twoWheel, Date date){
+    public Reservation checkIfTwoWheelReserved(TwoWheel twoWheel, Date date){
         List<Reservation> reservations = reservationRepository.findAllByTwoWheelAndCancelledFalse(twoWheel);
 
         for(Reservation reservation: reservations) {

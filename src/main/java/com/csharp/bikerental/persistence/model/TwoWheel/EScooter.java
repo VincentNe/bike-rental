@@ -12,12 +12,16 @@ public class EScooter extends Scooter implements Rechargeable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+
     private String twoWheelType ="EScooter";
     private String ExpectedKilometers;
    private String BatteryLevel;
     private String Watt;
     private String Capacity;
+    private String id;
+    private Boolean seat;
+    private Boolean lights;
+    private String Speedometer;
 
     public EScooter(String twoWheelType) {
         this.twoWheelType  = twoWheelType;
@@ -27,12 +31,55 @@ public class EScooter extends Scooter implements Rechargeable {
 
     //region Getters and Setters
 
+
+    @Override
+    public String getTwoWheelType() {
+        return twoWheelType;
+    }
+
+    @Override
+    public void setTwoWheelType(String twoWheelType) {
+        this.twoWheelType = twoWheelType;
+    }
+
+    @Override
     public String getId() {
         return id;
     }
 
+    @Override
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public Boolean getSeat() {
+        return seat;
+    }
+
+    @Override
+    public void setSeat(Boolean seat) {
+        this.seat = seat;
+    }
+
+    @Override
+    public Boolean getLights() {
+        return lights;
+    }
+
+    @Override
+    public void setLights(Boolean lights) {
+        this.lights = lights;
+    }
+
+    @Override
+    public String getSpeedometer() {
+        return Speedometer;
+    }
+
+    @Override
+    public void setSpeedometer(String speedometer) {
+        Speedometer = speedometer;
     }
 
     @Override
@@ -87,18 +134,4 @@ public class EScooter extends Scooter implements Rechargeable {
         Watt = watt;
     }
 
-    @Override
-    public String getTwoWheelType() {
-        return twoWheelType;
-    }
-
-    @Override
-    public void setTwoWheelType(String twoWheelType) {
-        this.twoWheelType = twoWheelType;
-    }
-
-    @Override
-    public void select() {
-        System.out.println("EScoter");
-    }
 }

@@ -1,7 +1,8 @@
 package com.csharp.bikerental.config;
 
 import com.csharp.bikerental.persistence.model.Customer;
-import com.csharp.bikerental.persistence.model.Employe;
+import com.csharp.bikerental.persistence.model.Employee;
+import com.csharp.bikerental.persistence.model.Employee;
 import com.csharp.bikerental.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -18,6 +19,6 @@ public class DemoData {
     public void appReady(ApplicationReadyEvent event) {
 
         userRepo.saveUser(new Customer("Customer Name","custy","pass"));
-        userRepo.saveUser(new Employe("Employer Name","employe","pass"));
+        userRepo.saveUser(new Employee("Employer Name","employe","pass"));
     }
 }

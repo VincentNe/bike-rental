@@ -1,11 +1,11 @@
-package com.csharp.bikerental.persistence.dto;
+package com.csharp.bikerental.dto;
 
 import java.util.Date;
 
 public class ReserveOneTimeDto {
     private Date startDate;
     private Date endDate;
-    private Long twoWheelId;
+    private Long twoWheelId ;
 
     public Date getStartDate() {
         return startDate;

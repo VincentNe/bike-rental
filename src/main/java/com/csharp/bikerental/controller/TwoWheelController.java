@@ -21,23 +21,24 @@ public class TwoWheelController {
 
 
     @GetMapping("/bike")
-    public String BikeOverview(Model model){
-        model.addAttribute("bike",twoWheelService.getBike());
+    public String BikeOverview(Model model) {
+        model.addAttribute("bike", twoWheelService.getBike());
         return "bike";
     }
+
     @PostMapping("/bike")
-    public ResponseEntity<?> selectTwoWheel(@RequestBody TwoWheel twoWheel){
-        try{
+    public ResponseEntity<?> selectTwoWheel(@RequestBody TwoWheel twoWheel) {
+        try {
             twoWheelService.selectBike(twoWheel);
             return ResponseEntity.ok().body(twoWheel);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(500).body(null);
         }
 
 
-
     }
+
 
 }
