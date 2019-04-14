@@ -45,6 +45,19 @@ cmake-build-*/
 
 # File-based project format
 *.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+/.mvn/
+/out/
 
 # IntelliJ
 out/
