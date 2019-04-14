@@ -1,0 +1,7 @@
+ignore:
+- "src/main/java/com/csharp/bikerental/BikeRentalApplication.java"
+
+coverage:
+  status:
+    project: no
+    patch: no
