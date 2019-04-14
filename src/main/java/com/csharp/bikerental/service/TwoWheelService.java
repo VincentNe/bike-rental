@@ -1,7 +1,7 @@
 package com.csharp.bikerental.service;
 
-import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
-import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheelBuilder;
+import com.csharp.bikerental.dto.NewTwoWheelDto;
+import com.csharp.bikerental.persistence.model.TwoWheel.*;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,29 @@ public class TwoWheelService {
 
     @Autowired
     private TwoWheelRepository twoWheelerRepository;
-    // private TwoWheelBuilder twoWheelBuilder;
+
+
+    public TwoWheel createTwoWheel(NewTwoWheelDto newTwoWheelDto){
+        TwoWheel twoWheel;
+        switch (newTwoWheelDto.getTwoWheelType()){
+            case BIKE:
+                twoWheel = new Bike();
+                break;
+            case EBIKE:
+                twoWheel = new EBike();
+                break;
+            case SCOOTER:
+                twoWheel = new Scooter();
+                break;
+            case ESCOOTER:
+                twoWheel = new EScooter();
+                break;
+            default:
+                return null;
+        }
+        return twoWheelerRepository.save(twoWheel);
+    }
+
 
 
     public void selectBike(TwoWheel twoWheel) {
@@ -30,23 +52,29 @@ public class TwoWheelService {
     }
 
     public void builderBike() {
+        Bike biker = new Bike();
         TwoWheelBuilder twoWheelBuilder = new TwoWheelBuilder();
-        TwoWheel biker = twoWheelBuilder.buildBike();
+        twoWheelBuilder.buildBike();
+
+        //TwoWheel biker = twoWheelBuilder.buildBike();
     }
 
     public void builderScooter() {
+        Scooter scooter = new Scooter();
         TwoWheelBuilder twoWheelBuilder = new TwoWheelBuilder();
-        TwoWheel scooter = twoWheelBuilder.buildScooter();
+        twoWheelBuilder.buildScooter();
     }
 
     public void builderEScooter() {
+        EScooter eScooter = new EScooter();
         TwoWheelBuilder twoWheelBuilder = new TwoWheelBuilder();
-        TwoWheel escooter = twoWheelBuilder.buildEScooter();
+        twoWheelBuilder.buildEScooter();
     }
 
     public void builderEBike() {
+        EBike ebiker = new EBike();
         TwoWheelBuilder twoWheelBuilder = new TwoWheelBuilder();
-        TwoWheel Ebiker = twoWheelBuilder.buildBike();
+        twoWheelBuilder.buildEBike();
     }
 
 }

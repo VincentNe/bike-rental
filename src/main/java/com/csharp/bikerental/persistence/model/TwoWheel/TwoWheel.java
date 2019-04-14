@@ -11,11 +11,14 @@ public abstract class TwoWheel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
+    private String identifier;
+
     String twoWheelType;
     private  String id;
     private Boolean seat;
     private Boolean lights;
     private String Speedometer;
+
 
 
    public TwoWheel(){}
@@ -68,5 +71,11 @@ public abstract class TwoWheel {
     }
     public abstract void select();
 
+    public String getIdentifier() {
+        return identifier;
+    }
 
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 }

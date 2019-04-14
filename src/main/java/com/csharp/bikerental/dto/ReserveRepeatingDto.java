@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.dto;
+package com.csharp.bikerental.dto;
 
 import com.csharp.bikerental.persistence.model.enums.ReservationPeriodicity;
 
