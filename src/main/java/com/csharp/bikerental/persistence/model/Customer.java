@@ -1,8 +1,10 @@
 package com.csharp.bikerental.persistence.model;
 
+import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
+import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
+import com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions;
+
 import javax.persistence.*;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @Entity
 public class Customer extends User{
@@ -35,10 +37,10 @@ public class Customer extends User{
         if(!subscriptions.useSubscription());
         return true;
     }
-
-    public void addSubscription(Subscription subscription){
-        subscriptions.addSubscription(subscription);
+    public void addSubscription(SubscriptionEnum subscriptionEnum){
+        subscriptions.addSubscription(subscriptionEnum);
     }
+
 
 
 }

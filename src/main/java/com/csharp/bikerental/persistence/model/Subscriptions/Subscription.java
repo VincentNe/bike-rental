@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.Subscriptions;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public abstract class Subscription {
+public abstract class Subscription implements Cloneable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -68,6 +68,17 @@ public abstract class Subscription {
     public abstract void stopUsingSubscription();
 
     public abstract int timesUsed();
+
+    public Object clone(){
+        Subscription result = null;
+        try {
+            result =  (Subscription) super.clone();
+            result.setId(0);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
 
 }

@@ -1,7 +1,10 @@
 package com.csharp.bikerental.service;
 
 import com.csharp.bikerental.persistence.model.*;
-import com.csharp.bikerental.persistence.model.Employe;
+import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
+import com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription;
+import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
+import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import com.csharp.bikerental.persistence.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +21,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean buySubcription(String username,Payment payment, SubscriptionEnum subscriptionEnum){
-        Customer u = (Customer) userRepository.findByUsername(username);
-        if(u==null) return false;
-        Subscription subscription = null;
 
-        //TODO change to Factory method or Prototype
-        switch (subscriptionEnum){
-            case AnnualSubscription:
-                subscription = new AnnualSubscription(1,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()+31536000000l));
-                break;
-            case PayAsYouGo:
-                subscription = new PayAsYouGoSubscription(1);
-                break;
-            case MonthSubscription:
-                subscription = new AnnualSubscription(1, new Date(18,8,1),new Date(18,9,1));
-                break;
-        }
-        u.addSubscription(subscription);
-        userRepository.save(u);
-        return false;
-    }
     public boolean rentBike(Long userId){
         User u = userRepository.findById(userId).get();
         boolean result = u.rentbike();
@@ -50,6 +33,9 @@ public class UserService implements UserDetailsService {
     }
     public User getUser(Long id){
         return  userRepository.findById(id).get();
+    }
+    public User getUserByUsername(String username){
+        return  userRepository.findByUsername(username);
     }
     public void removeUser(Long id){
 
@@ -78,14 +64,5 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public List<Subscription> getUserSubscriptions(String username) {
-        User user = userRepository.findByUsername(username);
-        Customer customer = null;
-        try {
-            customer = (Customer) user;
-        }catch (ClassCastException e){
-            System.out.println("Not a correct customer");
-        }
-        return customer.getSubscriptions().getSubscriptions();
-    }
+
 }

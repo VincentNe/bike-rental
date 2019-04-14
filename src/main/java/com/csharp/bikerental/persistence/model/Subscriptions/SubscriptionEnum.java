@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.Subscriptions;
 
 public enum SubscriptionEnum {
     AnnualSubscription, PayAsYouGo,MonthSubscription
