@@ -27,7 +27,7 @@ public class SubscriptionServiceTest {
 
     @Before
     public void setup(){
-        u = new Customer("Customer1");
+        u = new Customer("Customer1","UsernameExample","pass");
         userService.saveUser(u);
     }
 

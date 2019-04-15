@@ -1,8 +1,5 @@
 language: java
 
-env:
-  - DB=pgsql
-
 jdk:
   - oraclejdk8
 
@@ -13,11 +10,14 @@ install:
   - echo "Skip install step"
 
 before_script:
-  - psql -c 'create database bikeRental;' -U postgres
+  - psql -c 'create database bikerental;' -U postgres
   - cat .config/travis.application.properties > src/main/resources/application.properties
 
 script:
   - mvn clean package
+  
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 cache:
   directories:

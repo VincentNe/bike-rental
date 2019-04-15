@@ -3,9 +3,15 @@ package com.csharp.bikerental.persistence.model;
 import javax.persistence.Entity;
 
 @Entity
-public class Employe extends  User{
+public class Employee extends  User{
 
 
+    public Employee() {
+
+    }
+    public Employee(String name,String username,String password){
+        super(name, username,password);
+    }
 
     @Override
     public boolean rentbike() {
