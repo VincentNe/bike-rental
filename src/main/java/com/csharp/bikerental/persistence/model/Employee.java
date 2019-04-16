@@ -6,20 +6,18 @@ import com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
+import javax.persistence.*;
+
+
 @Entity
 public class Employee extends  User{
-
-
-
-    //region Gettters and Setters
-
-    //endregion
 
     public Employee() {
 
     }
-    public Employee(String name,String username,String password){
+    public Employee( String name,String username,String password){
         super(name, username,password);
+
     }
 
 
