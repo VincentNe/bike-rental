@@ -1,6 +1,10 @@
 package com.csharp.bikerental.service;
 
 import com.csharp.bikerental.persistence.model.*;
+import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
+import com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription;
+import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
+import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.Employee;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import com.csharp.bikerental.persistence.repo.UserRepository;
@@ -11,30 +15,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    public boolean buySubcription(Long userId,Payment payment, SubscriptionEnum subscriptionEnum){
-        Customer u = (Customer) userRepository.findById(userId).get();
-        if(u==null) return false;
-        Subscription subscription = null;
 
-        //TODO change to Factory method
-        switch (subscriptionEnum){
-            case AnnualSubscription:
-                subscription = new AnnualSubscription(new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()+31536000000l));
-                break;
-            case PayAsYouGo:
-                subscription = new PayAsYouGoSubscription();
-                break;
-        }
-        u.addSubscription(subscription);
-        userRepository.save(u);
-        return false;
-    }
     public boolean rentBike(Long userId){
         User u = userRepository.findById(userId).get();
         boolean result = u.rentbike();
@@ -46,6 +34,9 @@ public class UserService implements UserDetailsService {
     }
     public User getUser(Long id){
         return  userRepository.findById(id).get();
+    }
+    public User getUserByUsername(String username){
+        return  userRepository.findByUsername(username);
     }
     public void removeUser(Long id){
 
@@ -72,4 +63,7 @@ public class UserService implements UserDetailsService {
 
         return builder.build();
     }
+
+
+
 }

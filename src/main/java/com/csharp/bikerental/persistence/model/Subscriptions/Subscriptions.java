@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.Subscriptions;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +16,9 @@ public class Subscriptions {
 
     @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private List<Subscription> subscriptions;
+
+    @Transient
+    private SubscriptionCache subscriptionCache = new SubscriptionCache();
 
     //region Getters and Setters
 
@@ -49,6 +52,7 @@ public class Subscriptions {
         subscriptions.forEach(subscription -> {
             if(subscription.isSubscriptionValid()) {
                 result.set(true);
+                return;
             }
         });
         return result.get();
@@ -59,9 +63,14 @@ public class Subscriptions {
             if(subscription.isSubscriptionValid()) {
                 subscription.useSubscription();
                 result.set(true);
+                return;
             }
         });
         return result.get();
+    }
+    public void addSubscription(SubscriptionEnum subscriptionEnum){
+        Subscription subscription = subscriptionCache.getSubscription(subscriptionEnum);
+        subscriptions.add(subscription);
     }
 
 }
