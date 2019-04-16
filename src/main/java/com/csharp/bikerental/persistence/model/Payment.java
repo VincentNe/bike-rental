@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Payment {
@@ -15,6 +16,10 @@ public class Payment {
 
 
     private int amount;
+    
+    private Date paymentDate;
+    
+    private long userid;
 
     //region Getters and Setters
     public int getAmount() {
@@ -24,11 +29,28 @@ public class Payment {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+	public Date getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+	public long getUserId() {
+		return userid;
+	}
+
+	public void setUserId(Long userId) {
+		this.userid = userId;
+	}
     //endregion
 
     public Payment(){}
 
-    public Payment(int amount){
+    public Payment(int amount, Date paymentDate, String username){
+    	this.setPaymentDate(new Date(System.currentTimeMillis()));
 
     }
+
+
 }

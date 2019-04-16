@@ -1,8 +1,8 @@
 package com.csharp.bikerental.controller;
 
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
-import com.csharp.bikerental.service.SubscriptionService;
-import com.csharp.bikerental.service.UserService;
+import com.csharp.bikerental.service.SubscriptionService.*;
+import com.csharp.bikerental.service.UserService.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class SubscriptionController {
 
     @Autowired
-    SubscriptionService subscriptionService;
+    SubscriptionServiceFacadeInterface subscriptionService = new SubscriptionServiceFacadeImpl();
 
     @GetMapping("/Subscriptions")
     public String StationOverview(Model model){

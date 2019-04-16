@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.UserService;
 
 import com.csharp.bikerental.persistence.model.*;
 import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService,UserServiceInterface {
     @Autowired
     private UserRepository userRepository;
 
