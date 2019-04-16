@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.ReservationService;
 
 import com.csharp.bikerental.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public  class ReservationService{
+public  class ReservationServiceImpl implements ReservationServiceInterface{
     @Autowired
      ReservationRepository reservationRepository;
 

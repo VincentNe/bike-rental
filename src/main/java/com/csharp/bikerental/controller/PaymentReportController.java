@@ -1,7 +1,7 @@
 package com.csharp.bikerental.controller;
 
 
-import com.csharp.bikerental.service.PaymentReportService;
+import com.csharp.bikerental.service.PaymentReportService.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import com.csharp.bikerental.service.PaymentReportService.*;
 import com.csharp.bikerental.persistence.model.PaymentReportEnum;;
 
 
@@ -24,7 +24,7 @@ import com.csharp.bikerental.persistence.model.PaymentReportEnum;;
 @Controller
 public class PaymentReportController {
     @Autowired
-    private PaymentReportService paymentReportService;
+    private PaymentReportServiceFacadeInterface paymentReportService = new PaymentReportServiceFacadeImpl();
 
     
     @GetMapping(path="/paymentReports/{userid}")

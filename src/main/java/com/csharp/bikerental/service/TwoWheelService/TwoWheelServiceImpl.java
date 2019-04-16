@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.TwoWheelService;
 
 import com.csharp.bikerental.dto.NewTwoWheelDto;
 import com.csharp.bikerental.persistence.model.TwoWheel.*;
@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Service
-public class TwoWheelService {
+public class TwoWheelServiceImpl implements TwoWheelServiceInterface{
 
     @Autowired
     private TwoWheelRepository twoWheelerRepository;

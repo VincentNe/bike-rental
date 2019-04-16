@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.StationService;
 
 import com.csharp.bikerental.persistence.model.Station.Stand;
 import com.csharp.bikerental.persistence.model.Station.Station;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class StationService {
+public class StationServiceImpl implements StationServiceInterface{
 
     @Autowired
     private StationRepository stationRepository;

@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.IssuesService;
 
 import com.csharp.bikerental.persistence.model.Issues;
 import com.csharp.bikerental.persistence.repo.IssuesRepository;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Service
-public class IssuesService {
+public class IssuesServiceImpl implements IssuesServiceInterface {
 
     @Autowired
     private IssuesRepository issuesRepository;

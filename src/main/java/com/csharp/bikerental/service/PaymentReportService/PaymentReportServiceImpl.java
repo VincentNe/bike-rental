@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.PaymentReportService;
 
 import com.csharp.bikerental.persistence.model.Issues;
 import com.csharp.bikerental.persistence.repo.IssuesRepository;
@@ -15,10 +15,9 @@ import java.util.Iterator;
 import java.util.List;
 
 @Service
-public class PaymentReportService {
+public class PaymentReportServiceImpl implements  PaymentReportServiceInterface{
 
     @Autowired
-
 	public List<HashMap<Date, Long>> PaymentReportOverview(Long userid) {
     	PaymentReportImpl payments = new PaymentReportImpl();
     	return payments.calculatePayments(userid);

@@ -3,7 +3,7 @@ package com.csharp.bikerental.Service;
 import com.csharp.bikerental.BikeRentalApplication;
 import com.csharp.bikerental.persistence.model.Station.Stand;
 import com.csharp.bikerental.persistence.model.Station.Station;
-import com.csharp.bikerental.service.StationService;
+import com.csharp.bikerental.service.StationService.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class StationServiceTest {
 
     @Autowired
-    private StationService stationService;
+    private StationServiceImpl stationService;
 
     @Test
     public void AddStation(){
