@@ -14,6 +14,9 @@ public class UserEdit {
         this.NFCID = NFCID;
     }
 
+    public UserEdit() {
+    }
+
     public int getUserId() {
         return UserId;
     }

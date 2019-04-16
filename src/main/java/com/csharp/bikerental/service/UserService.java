@@ -72,4 +72,34 @@ public class UserService implements UserDetailsService {
 
         return builder.build();
     }
+
+    public UserEdit editUser( String username) throws  UsernameNotFoundException{
+        User user = userRepository.findByUsername(username);
+        if(user == null){
+            throw new UsernameNotFoundException(username);
+        }
+        UserEdit userEdit = new UserEdit();
+        UserEditSaver saver = userEdit.Saveto();
+        UserEditCaretaker userFormCaretaker = new UserEditCaretaker();
+        userFormCaretaker.addSaver(saver);
+        userFormCaretaker.toString();
+        saveUser(user);
+        return userEdit;
+
+    }
+
+    public UserEdit undoEdit( String username) throws  UsernameNotFoundException{
+        User user = userRepository.findByUsername(username);
+        if(user == null){
+            throw new UsernameNotFoundException(username);
+        }
+        UserEdit userEdit = new UserEdit();
+        UserEditCaretaker userFormCaretaker = new UserEditCaretaker();
+        UserEditSaver savers=userFormCaretaker.getSaver();
+        userEdit.undoSave(savers);
+        userEdit.toString();
+        return userEdit;
+
+    }
+
 }

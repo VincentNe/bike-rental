@@ -55,8 +55,6 @@ public class TwoWheelService {
         Bike biker = new Bike();
         TwoWheelBuilder twoWheelBuilder = new TwoWheelBuilder();
         twoWheelBuilder.buildBike();
-
-        //TwoWheel biker = twoWheelBuilder.buildBike();
     }
 
     public void builderScooter() {
