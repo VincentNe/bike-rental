@@ -1,4 +1,4 @@
-package com.csharp.bikerental.persistence.model;
+package com.csharp.bikerental.persistence.model.Subscriptions;
 
 import javax.persistence.Entity;
 import java.util.Date;
@@ -31,18 +31,40 @@ public class AnnualSubscription extends Subscription {
 
     public AnnualSubscription(){}
 
-    public AnnualSubscription(Date beginDate, Date expireDate){
+    public AnnualSubscription(int maxConcurrentUsers,Date beginDate, Date expireDate){
+        super(maxConcurrentUsers);
         this.beginDate = beginDate;
         this.expireDate = expireDate;
     }
 
     @Override
     public boolean isSubscriptionValid() {
-        return expireDate.before(new Date(System.currentTimeMillis()));
+        boolean result = expireDate.before(new Date(System.currentTimeMillis()));
+        return result;
+    }
+
+    @Override
+    public boolean canSubscriptionBeUsed() {
+        if(maxConcurrentUsers >= currentUses) return true;
+        return false;
     }
 
     @Override
     public void useSubscription() {
+        if(maxConcurrentUsers > currentUses) currentUses++;
+        else{
+            System.out.print("Max Concurrent uses is reached");
+        }
+    }
 
+    @Override
+    public void stopUsingSubscription() {
+        if(currentUses>0)return;
+        currentUses--;
+    }
+
+    @Override
+    public int timesUsed() {
+        return 0;
     }
 }
