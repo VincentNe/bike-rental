@@ -24,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .csrf().disable()
         .authorizeRequests()
         .antMatchers("/bike").hasRole("ADMIN")
+        .antMatchers("/Stations").hasRole("USER")
         .anyRequest().authenticated()
         .and()
         .authenticationProvider(authenticationProvider())

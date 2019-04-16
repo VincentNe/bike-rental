@@ -1,9 +1,6 @@
 package com.csharp.bikerental.persistence.model.Station;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Stand {
@@ -12,7 +9,10 @@ public class Stand {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @OneToOne
     private StandLockController standLockController;
+
+    @OneToOne
     private Lock lock  ;
 
     //region Gettters and Setters
@@ -55,9 +55,11 @@ public class Stand {
 
     public void openStand() {
         standLockController.setCommand(new UnlockCommand(this.lock));
+        standLockController.action();
 
     }
     public void closeStand(){
         standLockController.setCommand(new LockCommand(this.lock));
+        standLockController.action();
     }
 }
