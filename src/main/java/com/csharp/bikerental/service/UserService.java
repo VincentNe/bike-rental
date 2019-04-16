@@ -16,6 +16,7 @@ import java.util.Date;
 public class UserService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
+    Payment payments;
 
     public boolean buySubcription(Long userId,Payment payment, SubscriptionEnum subscriptionEnum){
         Customer u = (Customer) userRepository.findById(userId).get();
@@ -39,6 +40,11 @@ public class UserService implements UserDetailsService {
         User u = userRepository.findById(userId).get();
         boolean result = u.rentbike();
         userRepository.save(u);
+        //Adding payment stub
+        payments.setAmount(1000);
+        payments.setUserId(userId);
+        
+        
         return  result;
     }
     public void saveUser(User u){
