@@ -1,16 +1,16 @@
 package com.csharp.bikerental.persistence.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Employee extends  User{
 
-
     public Employee() {
 
     }
-    public Employee(String name,String username,String password){
+    public Employee( String name,String username,String password){
         super(name, username,password);
+
     }
 
     @Override
