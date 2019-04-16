@@ -1,6 +1,6 @@
 package com.csharp.bikerental.config;
 
-import com.csharp.bikerental.service.UserService;
+import com.csharp.bikerental.service.UserService.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserService userDetailsService;
+    
+    private UserServiceImpl userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

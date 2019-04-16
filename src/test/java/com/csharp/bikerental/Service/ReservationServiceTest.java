@@ -7,7 +7,7 @@ import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.repo.ReservationRepository;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import com.csharp.bikerental.persistence.repo.UserRepository;
-import com.csharp.bikerental.service.ReservationService;
+import com.csharp.bikerental.service.ReservationService.*;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -41,7 +41,7 @@ public class ReservationServiceTest {
     private WebApplicationContext context;
 
     @Autowired
-    ReservationService reservationService;
+    ReservationServiceFacadeInterface reservationService = new ReservationServiceFacadeImpl();
 
     @Autowired
     UserRepository userRepository;

@@ -6,7 +6,7 @@ import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions;
-import com.csharp.bikerental.service.UserService;
+import com.csharp.bikerental.service.UserService.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class SubscriptionServiceTest {
 
     @Autowired
-    public UserService userService;
+    public UserServiceFacadeInterface userService = new UserServiceFacadeImpl();
 
     private User u;
 

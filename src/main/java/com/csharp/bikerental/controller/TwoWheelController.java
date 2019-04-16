@@ -3,7 +3,7 @@ package com.csharp.bikerental.controller;
 
 import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
-import com.csharp.bikerental.service.TwoWheelService;
+import com.csharp.bikerental.service.TwoWheelService.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class TwoWheelController {
     @Autowired
-    private TwoWheelService twoWheelService;
+    private TwoWheelServiceFacadeInterface twoWheelService = new TwoWheelServiceFacadeImpl();
     private TwoWheelRepository twoWheelRepository;
 
 
