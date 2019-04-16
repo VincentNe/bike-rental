@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TwoWheelRepository extends CrudRepository<TwoWheel, String> {
+   TwoWheel findByIdentifier(String identifier);
 
 
 }

@@ -4,6 +4,9 @@ import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Employee;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.service.SubscriptionService;
+
+import com.csharp.bikerental.persistence.model.Employee;
+
 import com.csharp.bikerental.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

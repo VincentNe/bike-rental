@@ -5,6 +5,7 @@ import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
+import com.csharp.bikerental.persistence.model.Employee;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import com.csharp.bikerental.persistence.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

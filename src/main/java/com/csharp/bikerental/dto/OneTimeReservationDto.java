@@ -1,7 +1,6 @@
-package com.csharp.bikerental.persistence.dto;
+package com.csharp.bikerental.dto;
 
 
-import com.csharp.bikerental.persistence.model.User;
 import com.csharp.bikerental.persistence.model.reservation.OneTimeReservation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -26,21 +25,9 @@ public class OneTimeReservationDto {
 
     }
 
-    public TwoWheelDto getTwoWheelDto() {
-        return twoWheelDto;
-    }
 
-    public void setTwoWheelDto(TwoWheelDto twoWheelDto) {
-        this.twoWheelDto = twoWheelDto;
-    }
 
-    public UserDto getUserDto() {
-        return userDto;
-    }
 
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
-    }
 
     public Long getId() {
         return id;
@@ -48,6 +35,14 @@ public class OneTimeReservationDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public TwoWheelDto getTwoWheelDto() {
+        return twoWheelDto;
+    }
+
+    public void setTwoWheelDto(TwoWheelDto twoWheelDto) {
+        this.twoWheelDto = twoWheelDto;
     }
 
 
@@ -73,5 +68,13 @@ public class OneTimeReservationDto {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public UserDto getUserDto() {
+        return userDto;
+    }
+
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
     }
 }
