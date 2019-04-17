@@ -9,6 +9,7 @@ import com.csharp.bikerental.persistence.model.Employee;
 
 import com.csharp.bikerental.service.UserService.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -16,11 +17,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoData {
 
+    @Qualifier("userServiceFacadeImpl")
     @Autowired
-    private UserServiceFacadeInterface userRepo = new UserServiceFacadeImpl();
+    private UserServiceFacadeInterface userRepo;
 
+    @Qualifier("subscriptionServiceFacadeImpl")
     @Autowired
-    private SubscriptionServiceFacadeInterface subscriptionService= new SubscriptionServiceFacadeImpl();
+    private SubscriptionServiceFacadeInterface subscriptionService;
 
     @EventListener
     public void appReady(ApplicationReadyEvent event) {

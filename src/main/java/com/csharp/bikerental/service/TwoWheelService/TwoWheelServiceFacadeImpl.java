@@ -4,6 +4,7 @@ import com.csharp.bikerental.dto.NewTwoWheelDto;
 import com.csharp.bikerental.persistence.model.TwoWheel.*;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,9 +14,9 @@ import java.util.List;
 @Service
 public class TwoWheelServiceFacadeImpl implements TwoWheelServiceFacadeInterface{
 
+    @Qualifier("twoWheelServiceImpl")
     @Autowired
-    private TwoWheelRepository twoWheelerRepository;
-    private TwoWheelServiceInterface twoWheelService = new TwoWheelServiceImpl();
+    private TwoWheelServiceInterface twoWheelService;
 
 
     public TwoWheel createTwoWheel(NewTwoWheelDto newTwoWheelDto){

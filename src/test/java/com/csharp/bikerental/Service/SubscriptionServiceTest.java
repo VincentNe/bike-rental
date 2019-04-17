@@ -2,28 +2,36 @@ package com.csharp.bikerental.Service;
 
 import com.csharp.bikerental.BikeRentalApplication;
 import com.csharp.bikerental.persistence.model.*;
-import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
-import com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription;
-import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
-import com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions;
+import com.csharp.bikerental.persistence.model.Subscriptions.*;
+import com.csharp.bikerental.service.SubscriptionService.SubscriptionServiceFacadeInterface;
 import com.csharp.bikerental.service.UserService.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.junit.Assert;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = { BikeRentalApplication.class })
+//@ContextConfiguration(classes=Application.class)
+//@SpringBootTest(classes = { BikeRentalApplication.class })
+@DataJpaTest
 public class SubscriptionServiceTest {
 
+
+    @Qualifier("userServiceFacadeImpl")
     @Autowired
-    public UserServiceFacadeInterface userService = new UserServiceFacadeImpl();
+    public UserServiceFacadeInterface userServiceFacadeInterface;
+
+    @Autowired
+    public SubscriptionServiceFacadeInterface subscriptionServiceFacadeInterface;
 
     private User u;
 
@@ -31,9 +39,21 @@ public class SubscriptionServiceTest {
     @Before
     public void setup(){
         u = new Customer("Customer1","UsernameExample","pass");
-        userService.saveUser(u);
+        userServiceFacadeInterface.saveUser(u);
     }
-
+    @Test
+    public void buyAPayAsYouGoSubscriptionAsACustomer(){
+        subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.PayAsYouGo);
+        List<Subscription> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
+        AtomicBoolean containsSubscription = new AtomicBoolean(false);
+        subscriptions.forEach(subscription ->  {
+            if(subscription instanceof PayAsYouGoSubscription){
+                containsSubscription.set(true);
+            }
+        });
+        Boolean result = containsSubscription.get();
+        Assert.assertTrue(result);
+    }
 /*
     @Test
     public void buyAPayAsYouGoSubscriptionAsACustomer(){
@@ -70,6 +90,6 @@ public class SubscriptionServiceTest {
     */
     @After
     public void remove(){
-        userService.removeUser(u.getId());
+        userServiceFacadeInterface.removeUser(u.getId());
     }
 }

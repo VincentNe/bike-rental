@@ -6,6 +6,7 @@ import com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscript
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.Employee;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import com.csharp.bikerental.persistence.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,10 @@ import java.util.List;
 
 @Service
 public class UserServiceFacadeImpl implements UserDetailsService,UserServiceFacadeInterface {
+
+    @Qualifier("userServiceImpl")
     @Autowired
-    private UserRepository userRepository;
-    
-    UserServiceInterface userService = new UserServiceImpl();
+    UserServiceInterface userService;
 
     public boolean rentBike(Long userId){
     	return userService.rentBike(userId);

@@ -14,6 +14,7 @@ import com.csharp.bikerental.persistence.repo.ReservationRepository;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -21,13 +22,9 @@ import java.util.List;
 
 @Service
 public  class ReservationServiceFacadeImpl implements ReservationServiceFacadeInterface{
+    @Qualifier("reservationServiceImpl")
     @Autowired
-     ReservationRepository reservationRepository;
-
-    @Autowired
-    TwoWheelRepository twoWheelRepository;
-    
-    ReservationServiceInterface reservationService = new ReservationServiceImpl();
+    ReservationServiceInterface reservationService;
 
 
     public OneTimeReservationDto createOneTimeReservation(Customer customer, ReserveOneTimeDto reserveOneTimeDto) throws ServiceException {
