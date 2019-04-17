@@ -1,6 +1,5 @@
 package com.csharp.bikerental.persistence.model;
 
-import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions;
 

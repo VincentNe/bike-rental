@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.UserService;
 
 import com.csharp.bikerental.persistence.model.*;
 import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
@@ -18,7 +18,8 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class UserService implements UserDetailsService {
+public class UserServiceImpl implements UserDetailsService,UserServiceInterface {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -65,5 +66,33 @@ public class UserService implements UserDetailsService {
     }
 
 
+    public UserEdit editUser( String username) throws  UsernameNotFoundException{
+        User user = userRepository.findByUsername(username);
+        if(user == null){
+            throw new UsernameNotFoundException(username);
+        }
+        UserEdit userEdit = new UserEdit();
+        UserEditSaver saver = userEdit.Saveto();
+        UserEditCaretaker userFormCaretaker = new UserEditCaretaker();
+        userFormCaretaker.addSaver(saver);
+        userFormCaretaker.toString();
+        saveUser(user);
+        return userEdit;
+
+    }
+
+    public UserEdit undoEdit( String username) throws  UsernameNotFoundException{
+        User user = userRepository.findByUsername(username);
+        if(user == null){
+            throw new UsernameNotFoundException(username);
+        }
+        UserEdit userEdit = new UserEdit();
+        UserEditCaretaker userFormCaretaker = new UserEditCaretaker();
+        UserEditSaver savers=userFormCaretaker.getSaver();
+        userEdit.undoSave(savers);
+        userEdit.toString();
+        return userEdit;
+
+    }
 
 }

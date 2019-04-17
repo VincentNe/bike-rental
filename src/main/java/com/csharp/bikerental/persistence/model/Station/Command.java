@@ -4,3 +4,4 @@ package com.csharp.bikerental.persistence.model.Station;
 public interface Command {
     void execute();
 }
+

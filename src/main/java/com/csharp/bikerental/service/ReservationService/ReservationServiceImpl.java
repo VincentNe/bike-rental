@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.ReservationService;
 
 import com.csharp.bikerental.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
@@ -15,12 +15,11 @@ import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.List;
 
 @Service
-public  class ReservationService{
+public  class ReservationServiceImpl implements ReservationServiceInterface{
     @Autowired
      ReservationRepository reservationRepository;
 

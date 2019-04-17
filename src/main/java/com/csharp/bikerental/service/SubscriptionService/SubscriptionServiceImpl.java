@@ -1,4 +1,4 @@
-package com.csharp.bikerental.service;
+package com.csharp.bikerental.service.SubscriptionService;
 
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Payment;
@@ -8,16 +8,21 @@ import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import com.csharp.bikerental.service.UserService.*;
+import com.csharp.bikerental.service.UserService.UserServiceImpl;
+import com.csharp.bikerental.service.UserService.UserServiceInterface;
 
 import java.util.Date;
 import java.util.List;
 
 @Service
-public class SubscriptionService   {
+public class SubscriptionServiceImpl   implements SubscriptionServiceInterface{
 
+    @Qualifier("userServiceImpl")
     @Autowired
-    private UserService userService;
+    UserServiceInterface userService = new UserServiceImpl();
 
     public boolean buySubcription(String username, Payment payment, SubscriptionEnum subscriptionEnum){
         Customer u = (Customer) userService.getUserByUsername(username);

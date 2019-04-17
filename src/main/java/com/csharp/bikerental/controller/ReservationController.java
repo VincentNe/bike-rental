@@ -4,8 +4,8 @@ import com.csharp.bikerental.dto.*;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Employee;
 import com.csharp.bikerental.persistence.model.User;
-import com.csharp.bikerental.service.ReservationService;
-import com.csharp.bikerental.service.UserService;
+import com.csharp.bikerental.service.ReservationService.*;
+import com.csharp.bikerental.service.UserService.*;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +20,10 @@ import java.util.Map;
 public class ReservationController {
 
     @Autowired
-    UserService userService;
+    UserServiceFacadeInterface userService = new UserServiceFacadeImpl();
 
     @Autowired
-    ReservationService reservationService;
+    ReservationServiceFacadeInterface reservationService= new ReservationServiceFacadeImpl();
 
     @RequestMapping(path="/reservation/onetime", method = RequestMethod.POST)
     public ResponseEntity<?> createOneTimeReservation(@RequestBody @Valid ReserveOneTimeDto reserveOneTimeDto, Customer customer) {

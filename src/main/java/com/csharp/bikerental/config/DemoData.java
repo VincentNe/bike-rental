@@ -3,12 +3,13 @@ package com.csharp.bikerental.config;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Employee;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
-import com.csharp.bikerental.service.SubscriptionService;
+import com.csharp.bikerental.service.SubscriptionService.*;
 
 import com.csharp.bikerental.persistence.model.Employee;
 
-import com.csharp.bikerental.service.UserService;
+import com.csharp.bikerental.service.UserService.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -16,11 +17,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class DemoData {
 
+    @Qualifier("userServiceFacadeImpl")
     @Autowired
-    private UserService userRepo;
+    private UserServiceFacadeInterface userRepo;
 
+    @Qualifier("subscriptionServiceFacadeImpl")
     @Autowired
-    private SubscriptionService subscriptionService;
+    private SubscriptionServiceFacadeInterface subscriptionService;
 
     @EventListener
     public void appReady(ApplicationReadyEvent event) {
