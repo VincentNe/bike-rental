@@ -10,13 +10,16 @@ import com.csharp.bikerental.persistence.repo.UserRepository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SubscriptionServiceFacadeImpl implements SubscriptionServiceFacadeInterface {
 
-	
-	SubscriptionServiceInterface subscriptionService = new SubscriptionServiceImpl(); 
+	@Qualifier("subscriptionServiceImpl")
+	@Autowired
+	SubscriptionServiceInterface subscriptionService;
+
 	 public boolean buySubcription(String username, Payment payment, SubscriptionEnum subscriptionEnum){
 		 return subscriptionService.buySubcription(username, payment, subscriptionEnum);
 	}

@@ -8,6 +8,7 @@ import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.csharp.bikerental.service.UserService.*;
 import com.csharp.bikerental.service.UserService.UserServiceImpl;
@@ -19,6 +20,7 @@ import java.util.List;
 @Service
 public class SubscriptionServiceImpl   implements SubscriptionServiceInterface{
 
+    @Qualifier("userServiceImpl")
     @Autowired
     UserServiceInterface userService = new UserServiceImpl();
 

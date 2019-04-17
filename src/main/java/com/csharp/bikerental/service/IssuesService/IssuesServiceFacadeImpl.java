@@ -3,6 +3,7 @@ package com.csharp.bikerental.service.IssuesService;
 import com.csharp.bikerental.persistence.model.Issues;
 import com.csharp.bikerental.persistence.repo.IssuesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.csharp.bikerental.service.IssuesService.*;
 
@@ -14,9 +15,9 @@ import java.util.List;
 @Service
 public class IssuesServiceFacadeImpl implements IssuesServiceFacadeInterface {
 
+    @Qualifier("issuesServiceImpl")
     @Autowired
-    private IssuesRepository issuesRepository;
-    private IssuesServiceInterface issuesService = new IssuesServiceImpl();
+    private IssuesServiceInterface issuesService;
 
     
 

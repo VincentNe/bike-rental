@@ -23,6 +23,7 @@ public class StandLockController {
         return command;
     }
     //endregion
+
     @Transient
     private Command command;
 

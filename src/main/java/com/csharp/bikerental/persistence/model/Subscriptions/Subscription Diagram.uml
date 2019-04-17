@@ -3,99 +3,47 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="109.24999999999999" y="320.0">com.csharp.bikerental.persistence.model.User</node>
-    <node x="128.5606481481482" y="0.0">com.csharp.bikerental.persistence.model.Subscriptions.Subscription</node>
-    <node x="223.0" y="240.0">com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionCache</node>
-    <node x="32.5" y="110.0">com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription</node>
-    <node x="200.25" y="320.0">com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions</node>
-    <node x="408.5" y="110.0">com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum</node>
-    <node x="189.91666666666666" y="400.0">com.csharp.bikerental.persistence.model.Customer</node>
-    <node x="205.5" y="110.0">com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription</node>
+    <node x="134.0" y="0.0">java.lang.Cloneable</node>
+    <node x="250.5" y="235.0">com.csharp.bikerental.persistence.model.User</node>
+    <node x="127.5" y="80.0">com.csharp.bikerental.persistence.model.Subscriptions.Subscription</node>
+    <node x="0.0" y="390.0">com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionCache</node>
+    <node x="202.0" y="160.0">com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription</node>
+    <node x="192.0" y="390.0">com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions</node>
+    <node x="23.0" y="315.0">com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum</node>
+    <node x="236.0" y="315.0">com.csharp.bikerental.persistence.model.Customer</node>
+    <node x="0.0" y="160.0">com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription</node>
+    <node x="0.0" y="235.0">com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnumInterface</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions" target="com.csharp.bikerental.persistence.model.Subscriptions.Subscription">
-      <point x="-47.599999999999966" y="-15.0" />
-      <point x="212.15000000000003" y="300.0" />
-      <point x="0.0" y="300.0" />
-      <point x="0.0" y="50.0" />
-      <point x="134.89398148148152" y="50.0" />
-      <point x="-50.666666666666686" y="15.0" />
-    </edge>
     <edge source="com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription" target="com.csharp.bikerental.persistence.model.Subscriptions.Subscription">
-      <point x="45.5" y="-15.0" />
-      <point x="342.0" y="80.0" />
-      <point x="223.56064814814815" y="80.0" />
-      <point x="37.99999999999994" y="15.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="91.0" y="135.0" />
+      <point x="156.0" y="135.0" />
+      <point x="-28.5" y="15.0" />
     </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionCache" target="com.csharp.bikerental.persistence.model.Subscriptions.Subscription">
-      <point x="-22.049999999999983" y="-15.0" />
-      <point x="274.45" y="190.0" />
-      <point x="195.0" y="190.0" />
-      <point x="195.0" y="90.0" />
-      <point x="198.2273148148149" y="90.0" />
-      <point x="12.666666666666686" y="15.0" />
-    </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionCache" target="com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription">
-      <point x="-51.44999999999996" y="-15.0" />
-      <point x="245.05" y="210.0" />
-      <point x="70.5" y="210.0" />
-      <point x="-38.0" y="15.0" />
-    </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Customer" target="com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions">
-      <point x="8.333333333333314" y="-15.0" />
-      <point x="248.24999999999997" y="380.0" />
-      <point x="259.75" y="380.0" />
+    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum" target="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnumInterface">
+      <point x="0.0" y="-15.0" />
       <point x="0.0" y="15.0" />
     </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Customer" target="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum">
-      <point x="41.666666666666686" y="-15.0" />
-      <point x="281.58333333333337" y="380.0" />
-      <point x="502.6166666666667" y="380.0" />
-      <point x="502.6166666666667" y="220.0" />
-      <point x="539.0" y="220.0" />
-      <point x="58.0" y="15.0" />
-    </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions" target="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionCache">
+    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.Subscription" target="java.lang.Cloneable">
       <point x="0.0" y="-15.0" />
-      <point x="-36.75" y="15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
     <edge source="com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription" target="com.csharp.bikerental.persistence.model.Subscriptions.Subscription">
-      <point x="38.0" y="-15.0" />
-      <point x="146.5" y="90.0" />
-      <point x="185.5606481481482" y="90.0" />
-      <point x="0.0" y="15.0" />
-    </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionCache" target="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum">
-      <point x="36.75" y="-15.0" />
-      <point x="333.25" y="180.0" />
-      <point x="423.0" y="180.0" />
-      <point x="-58.0" y="15.0" />
-    </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.Subscriptions" target="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum">
-      <point x="47.60000000000002" y="-15.0" />
-      <point x="307.35" y="300.0" />
-      <point x="485.9166666666667" y="300.0" />
-      <point x="485.9166666666667" y="210.0" />
-      <point x="510.0" y="210.0" />
-      <point x="29.0" y="15.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="278.0" y="135.0" />
+      <point x="213.0" y="135.0" />
+      <point x="28.5" y="15.0" />
     </edge>
     <edge source="com.csharp.bikerental.persistence.model.Customer" target="com.csharp.bikerental.persistence.model.User">
-      <point x="-41.666666666666686" y="-15.0" />
-      <point x="198.24999999999997" y="380.0" />
-      <point x="126.99999999999999" y="380.0" />
-      <point x="-17.75" y="15.0" />
-    </edge>
-    <edge source="com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionCache" target="com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription">
-      <point x="-7.349999999999994" y="-15.0" />
-      <point x="289.15" y="180.0" />
-      <point x="251.0" y="180.0" />
-      <point x="-45.5" y="15.0" />
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.1" x="346.3636363636363" y="222.99999999999997" />
+  <settings layout="Hierarchic Group" zoom="1.1" x="346.0" y="261.9090909090909" />
   <SelectedNodes>
-    <node>com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum</node>
+    <node>com.csharp.bikerental.persistence.model.Customer</node>
   </SelectedNodes>
   <Categories />
   <SCOPE>All</SCOPE>

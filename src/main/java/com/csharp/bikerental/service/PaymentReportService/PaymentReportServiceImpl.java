@@ -17,7 +17,6 @@ import java.util.List;
 @Service
 public class PaymentReportServiceImpl implements  PaymentReportServiceInterface{
 
-    @Autowired
 	public List<HashMap<Date, Long>> PaymentReportOverview(Long userid) {
     	PaymentReportImpl payments = new PaymentReportImpl();
     	return payments.calculatePayments(userid);
