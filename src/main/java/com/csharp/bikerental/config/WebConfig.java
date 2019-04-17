@@ -1,9 +1,8 @@
 package com.csharp.bikerental.config;
 
-import com.csharp.bikerental.config.Interceptor.LogInterceptor;
+import com.csharp.bikerental.config.Interceptor.UserInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -12,10 +11,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
-    LogInterceptor logInterceptor;
+    UserInterceptor userInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(logInterceptor);
+        registry.addInterceptor(userInterceptor);
     }
 }
