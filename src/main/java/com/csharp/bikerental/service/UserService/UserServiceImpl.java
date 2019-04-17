@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserDetailsService,UserServiceInterface 
 
     public boolean rentBike(Long userId){
         User u = userRepository.findById(userId).get();
+        System.out.println("zfzefezfzef");
         boolean result = u.rentbike();
         userRepository.save(u);
         return  result;
