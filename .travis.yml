@@ -15,7 +15,7 @@ script:
     - echo "${DB_PASSWORD}" >> src/main/resources/application.properties
     - echo "${DB_URL}" >> src/main/resources/application.properties
     - echo "${DB_USERNAME}" >> src/main/resources/application.properties
-    - echo "${TOKEN_SECRET}" >> src/main/resources/application.properties
+ 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 
