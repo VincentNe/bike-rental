@@ -48,6 +48,5 @@ public class PaymentReportImpl {
 
     	//Returning the Root which has its own Report along with other reports and its corresponding hashmaps
     	return fullReport.getCompleteReport();
-    	    	
     }
 }

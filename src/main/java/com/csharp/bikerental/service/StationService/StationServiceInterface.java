@@ -18,8 +18,9 @@ public interface StationServiceInterface {
     public void addStation(Station station);
     public List<Station> getStations();
     public Station getStationByID(Long identifier);
-    public boolean addStandToStation(Stand stand, Long identifier);
+    public Stand addStandToStation(Stand stand, Long identifier);
     public TwoWheel getBikeFromStand(Long standId);
     public void putBikeInStand(Long standId,String twoWheelerId);
 
+    Stand getStandById(Long standId);
 }

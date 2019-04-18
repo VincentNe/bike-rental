@@ -6,6 +6,7 @@ import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.repo.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class StationServiceFacadeImpl implements StationServiceFacadeInterface{
     @Autowired
     private StationServiceInterface stationService;
 
-    
+
     public void addStation(Station station){
     	stationService.addStation(station);
     }
@@ -34,7 +35,7 @@ public class StationServiceFacadeImpl implements StationServiceFacadeInterface{
         return stationService.getStationByID(identifier);
     }
 
-    public boolean addStandToStation(Stand stand, Long identifier){
+    public Stand addStandToStation(Stand stand, Long identifier){
         return stationService.addStandToStation(stand,identifier);
     }
 
@@ -44,4 +45,8 @@ public class StationServiceFacadeImpl implements StationServiceFacadeInterface{
     public void putBikeInStand(Long standId,String twoWheelerId){
         stationService.putBikeInStand(standId,twoWheelerId);
     }
+    public Stand getStandById(Long standId){
+        return stationService.getStandById(standId);
+    }
+
 }

@@ -19,7 +19,7 @@ import java.util.List;
 
 @Service
 public interface UserServiceInterface {
-    public boolean rentBike(Long userId);
+    public boolean rentBike(String Username,Long standId);
     public void saveUser(User u);
     public User getUser(Long id);
     public User getUserByUsername(String username);
@@ -30,4 +30,5 @@ public interface UserServiceInterface {
 
     public UserEdit undoEdit( String username);
 
+    void returnBike(String username, Long standId, String bikeId);
 }

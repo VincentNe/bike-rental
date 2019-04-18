@@ -57,13 +57,13 @@ public class Stand {
     public Stand(){
         standLockController = new StandLockController();
         lock = new Lock();
+        bike = null;
     }
 
 
 
     public boolean isEmpty() {
-        //TODO check if bike is in stand;
-        return  true;
+        return  bike==null;
     }
 
     public void openStand() {
@@ -76,7 +76,7 @@ public class Stand {
         standLockController.action();
     }
     public TwoWheel takeoutBike(){
-        if(bike == null) return null;
+        if(this.bike == null) return null;
         openStand();
         if(!lock.isLocked()) {
             TwoWheel result = bike;
@@ -86,7 +86,7 @@ public class Stand {
         return  null;
     }
     public void putBikeInStand(TwoWheel bike){
-        if(bike != null) return;
+        if(this.bike != null) return;
         openStand();
         if(!lock.isLocked()){
             this.bike = bike;

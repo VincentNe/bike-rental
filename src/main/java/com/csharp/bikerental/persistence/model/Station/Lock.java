@@ -37,11 +37,9 @@ public class Lock {
     }
 
     public void lock(){
-        System.out.println("lock Bike Stand");
         isLocked = true;
     }
     public void unLock(){
-        System.out.println("Unlock Bike Stand");
         isLocked = false;
     }
 }

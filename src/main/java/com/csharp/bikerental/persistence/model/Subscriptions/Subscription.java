@@ -70,7 +70,7 @@ public abstract class Subscription implements Cloneable {
         this.name = subType;
     }
     //BASED ON DATE
-    public abstract boolean isSubscriptionValid();
+    public abstract boolean isSubscriptionExpired();
     //BASED ON NUMBER OF USERS
     public abstract boolean canSubscriptionBeUsed();
 

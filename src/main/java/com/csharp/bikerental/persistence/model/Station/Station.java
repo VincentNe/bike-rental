@@ -12,8 +12,8 @@ public class Station {
     private long id;
 
     private String stationName;
-
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    // ,
+    @OneToMany(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     private List<Stand> stands;
 
     //region Getters and Setters

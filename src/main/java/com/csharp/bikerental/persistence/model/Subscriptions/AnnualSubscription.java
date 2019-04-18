@@ -38,20 +38,23 @@ public class AnnualSubscription extends Subscription {
     }
 
     @Override
-    public boolean isSubscriptionValid() {
+    public boolean isSubscriptionExpired() {
         boolean result = expireDate.before(new Date(System.currentTimeMillis()));
         return result;
     }
 
     @Override
     public boolean canSubscriptionBeUsed() {
-        if(maxConcurrentUsers >= currentUses) return true;
+        if(maxConcurrentUsers > currentUses) return true;
         return false;
     }
 
     @Override
     public void useSubscription() {
-        if(maxConcurrentUsers > currentUses) currentUses++;
+        if(currentUses < maxConcurrentUsers ){
+            currentUses++;
+            timesUsed++;
+        }
         else{
             System.out.print("Max Concurrent uses is reached");
         }
@@ -59,12 +62,11 @@ public class AnnualSubscription extends Subscription {
 
     @Override
     public void stopUsingSubscription() {
-        if(currentUses>0)return;
         currentUses--;
     }
 
     @Override
     public int timesUsed() {
-        return 0;
+        return timesUsed;
     }
 }

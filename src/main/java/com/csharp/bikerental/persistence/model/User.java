@@ -1,8 +1,17 @@
 package com.csharp.bikerental.persistence.model;
 
+import com.csharp.bikerental.persistence.model.Station.Stand;
+import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.engine.internal.Cascade;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -20,7 +29,21 @@ public abstract class User {
     private String username;
 
     private String password;
+
+    @OneToMany(cascade = {CascadeType.ALL})
+    @LazyCollection(LazyCollectionOption.FALSE)
+    protected List<Rental> twoWheel;
+
     //region Getters and Setters
+
+
+    public List<Rental> getTwoWheel() {
+        return twoWheel;
+    }
+
+    public void setTwoWheel(List<Rental> twoWheel) {
+        this.twoWheel = twoWheel;
+    }
 
     public long getId() {
         return id;
@@ -56,12 +79,18 @@ public abstract class User {
 
     //endregion
 
-    public User(){}
+    public User(){
+        twoWheel = new ArrayList<>();
+    }
     public User(String name,String username, String password){
+        twoWheel = new ArrayList<>();
+
         this.name = name;
         this.username  = username;
         //TODO ADD encryption to password
         this.password = new BCryptPasswordEncoder().encode(password);     }
 
-    public abstract boolean rentbike();
+    public abstract boolean rentbike(Stand s);
+    public abstract boolean returnBike(String twoWheelId);
+
 }
