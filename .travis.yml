@@ -11,23 +11,21 @@ before_script:
 script:
 - mvn clean package
 - before_deploy:
-    - cat .config/heroku.application.properties > src/main/resources/application.properties
-    - echo "${DB_PASSWORD}" >> src/main/resources/application.properties
-    - echo "${DB_URL}" >> src/main/resources/application.properties
-    - echo "${DB_USERNAME}" >> src/main/resources/application.properties
-    - echo "${TOKEN_SECRET}" >> src/main/resources/application.properties
+  - cat .config/heroku.application.properties > src/main/resources/application.properties
+  - echo "${DB_PASSWORD}" >> src/main/resources/application.properties
+  - echo "${DB_URL}" >> src/main/resources/application.properties
+  - echo "${DB_USERNAME}" >> src/main/resources/application.properties
+  - echo "${TOKEN_SECRET}" >> src/main/resources/application.properties
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-
 deploy:
   provider: heroku
   api_key:
-    secure: u4ddN6IHvEv1/cjnw38J2RJTOJ+Kv3B9zzc/j/7HmylEJKQyVF6ZBDa00quBHXtb6eoZhxaVkPVsFcs96i2dHqVx06Q6Dh3TD8iqdlBvnvU50mSbgww1irah1+8bMU81BcLB/U0Q3ZA+TUf8zjiZO2P8xZvT5Wel9YyLknVz/6StuEvCLzynb6d8fwwXEY2rAfRErFuyKI9ozwumrEDYkAcaVU2CfQSAA+xqHrrGDWZ3OcBmyXp10KTJAZXO/6hfkyB/HHckhEYKDsCXbJrJrUhH9UenFa6Up6s6VkvR+bFvh98kXX0ezTWhGGqJ7hLSOl+bE5dch8YSfPflc25mJImI7/NmFDCbuLmQ3nzCn1FKqoVE+/GxUsADrWadQ6FbZERCGrVEtuSN5BuPKkVNglI9ghlMILt12Jml00ywrHlz6TcKa+QFuXj0HaNNWPNEcWt8dTt+LwJM0i9kRXViy4y0WcXjDCWbG9qrM0/5JKfYeO4LaW8RYCswdWk7BUV4XI/2tzxTp0QxMOgzfUW/S0gY+DuA6g767oMdzESdWX4zbMRAUUABV6iht40vjFhinb4yAa4UkUhDfgagWAcq7Fb/EKNIaOUlflk5yNKDdFPFIDGNhBDHCLHoW7FdWNcmenFaEj3ytxEj/GYPYkKTJeONAgU+WyIABeKFjyS5RPk=
+    secure: 2J1CLxWMyQXszRdKrbycqhDoqkTnTZlVLo4opv5vD1K428iGRIPcjTwa9UR5EfZxuJFRL/I/jT6iYS8cVHfwtG3/sxMzMCR4AhYra3yt/us5J+lFuhnuIkidfNeGUAeENxxm8Ej2Q2WJfxRbB2lPXdM8VN880jwm5irxIB4yReD1x8E28oE6UKIwow3cI41tK9mXdzKcKQvZS6OkddNQH7KId4lwnIbAD2u5V6Sncm91y+kf7a/emmG1Y4phmZsjtTdojsuiqNeeB41V1Y3a9z16U1NqT4VBAnfqzB3yaDHwAVCeHkRBkthYJAmSDC1iTKs97dUR3g0g5nKyzDsN0zXxZPItk8WR6XceyOeW9SY1D7OYPLGszl96bFDJXMrbbz/myePZuVVyralwcUTLzE8nyh3H5JQwi3PC36ZYGjOnEWnOXyFxruGhzDOFdk9DNWmlDhj9SygYmgOSdbcIxjVazgFTSycdPsY6GKgVP9CR+eezSQo0DwXFeOF+rw5ZuNAoFI2AkK03TcMn4mU+4JGqpwSXyKV8kcx+oPmFUOUFgEXMaTtGLOHL6obth/O3WOox5SCpSqUFnMvW7prL/7qiA8JLdwQLxgENrkf6UBA1LwW8QIYZ55eeEoMI5obCs54uzM17Vpw16As7TpE0Ieap9W4nVPcnzq4+GUe9yOw=
   on:
     branch: master
-
 cache:
   directories:
-    - "$HOME/.m2"
+  - "$HOME/.m2"
 notifications:
   email: false
