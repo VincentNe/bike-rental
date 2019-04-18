@@ -77,6 +77,22 @@ public class SubscriptionServiceTest {
         Assert.assertTrue(containsSubscription.get());
     }
 
+    @Test
+    public void testInterceptor(){
+        subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.MonthSubscription);
+        SubscriptionDispatcher.getInstanceOfDispatcher().registerDispatcher(new ConcreteInterceptor());
+        userServiceFacadeInterface.rentBike(u.getId());
+
+        List<Subscription> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
+        AtomicBoolean containsSubscription = new AtomicBoolean(false);
+        subscriptions.forEach(subscription ->  {
+            if(subscription instanceof AnnualSubscription){
+                containsSubscription.set(true);
+            }
+        });
+        Assert.assertTrue(containsSubscription.get());
+    }
+
     @After
     public void remove(){
         userServiceFacadeInterface.removeUser(u.getId());

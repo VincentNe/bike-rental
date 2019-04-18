@@ -2,6 +2,7 @@ package com.csharp.bikerental.persistence.model.Subscriptions;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -58,14 +59,19 @@ public class Subscriptions {
         return result.get();
     }
     public boolean useSubscription(){
+        SubscriptionDispatcher dispatcher = SubscriptionDispatcher.getInstanceOfDispatcher();
+        dispatcher.preRequest(subscriptions);
+        List<Subscription> subscriptionUsed = null;
         AtomicBoolean result = new AtomicBoolean(false);
         subscriptions.forEach(subscription -> {
             if(subscription.isSubscriptionValid()) {
                 subscription.useSubscription();
+                subscriptionUsed.add(subscription);
                 result.set(true);
                 return;
             }
         });
+        dispatcher.postRequest(subscriptionUsed);
         return result.get();
     }
     public void addSubscription(SubscriptionEnum subscriptionEnum){
