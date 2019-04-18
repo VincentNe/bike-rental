@@ -12,18 +12,7 @@ script:
 - mvn clean package
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-before_deploy:
-    - cat .config/heroku.application.properties > src/main/resources/application.properties
-    - echo "${DB_PASSWORD}" >> src/main/resources/application.properties
-    - echo "${DB_URL}" >> src/main/resources/application.properties
-    - echo "${DB_USERNAME}" >> src/main/resources/application.properties
-    - echo "${TOKEN_SECRET}" >> src/main/resources/application.properties
-deploy:
-  provider: heroku
-  api_key:
-     secure: hlcsxyyND+yt4xGAA3xF9OXmri2I3APu0c6fG50+M1pYkbqDgMG9viRpYf+92zpzA8haY9Mmx6yGUI1WK/SskZxi6Y/+Q9e2gmUA0ygW+oEQthR3sGf+tKCGk8bEjqOmNqnuDvgUqDJ+Fkj8dioiWYYN8EV5HMHfDMazz0e7iXPFVdleXvYWhSSg6oTmC/5h7s2Qd9OnFyidBgHG7roZIr+ftb1plK5DKtiGtu9nBFfvCXmpIypW/M7RS0V2dUi7TKBfZdwG5U0pIiEItn5xlg+4DdoCf3KF8pFFgN92GmQnhIR9ABYNulUWIKtByNCOK990KKuHOJQ2iZuZoNuf4+oM4ygT/1m2fkPvT2NzjUomLPlRcScXl6DigCX0hE0J7OC0OZcl6JmCp9b/tfZzWBrnJ0cqHwo7ccD0zIIKgl3y5BoIEiCa9BTr5xYNowjgGvlbRkVyDw/l+Cz2KdGYjzyIdOZ3a+oFFCMtMIp3rJg2XkJh/M7etBCGZ8wfLEGFuXdSCx0JDHkGLVpVEy45A/bfaTuErbt43JnaedraZDQY9ffG0oR/tThRm7ZPOZgGZo1gW3+oCxnYOhIDMiE9XX8L5Qp6311RS9FbWHwgiQtndGPU5aNgMEnqQXKKNlS4q96Fv0HvpBhZvoxjJGMNcDLWk8pDPa0bYchzzTkD51g=
-  on:
-    branch: master
+
 cache:
   directories:
   - "$HOME/.m2"
