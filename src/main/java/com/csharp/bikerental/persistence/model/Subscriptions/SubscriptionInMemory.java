@@ -13,11 +13,11 @@ public class SubscriptionInMemory {
     public static Map<SubscriptionEnum, Subscription> loadPrototypes() {
 
         Map<SubscriptionEnum,Subscription> map = new HashMap<SubscriptionEnum,Subscription>();
-        PayAsYouGoSubscription payAsYouGoSubscription = new PayAsYouGoSubscription(1);
+        PayAsYouGoSubscription payAsYouGoSubscription = new PayAsYouGoSubscription(1,SubscriptionEnum.PayAsYouGo);
         map.put(SubscriptionEnum.PayAsYouGo, payAsYouGoSubscription );
-        AnnualSubscription annualSubscription = new AnnualSubscription(1,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()+31536000000l));
-        map.put(SubscriptionEnum.AnnualSubscription, payAsYouGoSubscription);
-        AnnualSubscription monthlySubscription = new AnnualSubscription(1,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis() + 2592000000l ));
+        AnnualSubscription annualSubscription = new AnnualSubscription(1,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis()+31536000000l),SubscriptionEnum.AnnualSubscription);
+        map.put(SubscriptionEnum.AnnualSubscription, annualSubscription);
+        AnnualSubscription monthlySubscription = new AnnualSubscription(1,new Date(System.currentTimeMillis()),new Date(System.currentTimeMillis() + 2592000000l ),SubscriptionEnum.MonthSubscription);
         map.put(SubscriptionEnum.MonthSubscription, monthlySubscription);
         return map;
     }

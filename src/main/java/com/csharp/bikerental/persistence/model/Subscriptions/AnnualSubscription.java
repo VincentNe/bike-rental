@@ -31,8 +31,8 @@ public class AnnualSubscription extends Subscription {
 
     public AnnualSubscription(){}
 
-    public AnnualSubscription(int maxConcurrentUsers,Date beginDate, Date expireDate){
-        super(maxConcurrentUsers);
+    public AnnualSubscription(int maxConcurrentUsers,Date beginDate, Date expireDate, SubscriptionEnum subType){
+        super(maxConcurrentUsers,subType);
         this.beginDate = beginDate;
         this.expireDate = expireDate;
     }

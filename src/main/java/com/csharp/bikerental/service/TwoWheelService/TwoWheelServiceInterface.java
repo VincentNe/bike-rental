@@ -19,7 +19,8 @@ public interface TwoWheelServiceInterface {
 
     public void selectBike(TwoWheel twoWheel);
     public List<TwoWheel> getBike();
-
+    public TwoWheel getTwoWheel(String identifier);
+    public void saveTwoWheel(TwoWheel twoWheel);
     public void builderBike();
 
     public void builderScooter();
