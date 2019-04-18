@@ -18,16 +18,14 @@ before_deploy:
     - echo "${DB_URL}" >> src/main/resources/application.properties
     - echo "${DB_USERNAME}" >> src/main/resources/application.properties
     - echo "${TOKEN_SECRET}" >> src/main/resources/application.properties
-
 deploy:
   provider: heroku
   api_key:
-    secure: u4ddN6IHvEv1/cjnw38J2RJTOJ+Kv3B9zzc/j/7HmylEJKQyVF6ZBDa00quBHXtb6eoZhxaVkPVsFcs96i2dHqVx06Q6Dh3TD8iqdlBvnvU50mSbgww1irah1+8bMU81BcLB/U0Q3ZA+TUf8zjiZO2P8xZvT5Wel9YyLknVz/6StuEvCLzynb6d8fwwXEY2rAfRErFuyKI9ozwumrEDYkAcaVU2CfQSAA+xqHrrGDWZ3OcBmyXp10KTJAZXO/6hfkyB/HHckhEYKDsCXbJrJrUhH9UenFa6Up6s6VkvR+bFvh98kXX0ezTWhGGqJ7hLSOl+bE5dch8YSfPflc25mJImI7/NmFDCbuLmQ3nzCn1FKqoVE+/GxUsADrWadQ6FbZERCGrVEtuSN5BuPKkVNglI9ghlMILt12Jml00ywrHlz6TcKa+QFuXj0HaNNWPNEcWt8dTt+LwJM0i9kRXViy4y0WcXjDCWbG9qrM0/5JKfYeO4LaW8RYCswdWk7BUV4XI/2tzxTp0QxMOgzfUW/S0gY+DuA6g767oMdzESdWX4zbMRAUUABV6iht40vjFhinb4yAa4UkUhDfgagWAcq7Fb/EKNIaOUlflk5yNKDdFPFIDGNhBDHCLHoW7FdWNcmenFaEj3ytxEj/GYPYkKTJeONAgU+WyIABeKFjyS5RPk=
+    secure: EOznXEpyqss6+3H1d72pMujBCYYIG5ZjBq/6e7RgTpSfJvyQbu+OgUTJ/Kn5ZeO1uglJWCDOabyOW08Z8kG3TMrPoOYO43cMeDDgMR+PyhkaLQuXbVJjXDk0ymKsrptbb3z6I8uSNLBIkTLmyaOKtdnsSJiVK7X8y2V3cC44Kz8vuau3LlSxKgAqpvyFW4eTIRcUSeZ/Qe2PxOEwoZ9bUphYHUbKiA9wGOgy5Gi8u9YYAEGqNCM1JvGxSoS0NJ00Uh3alWeybZ9G460s+lC0LbxkPpGmAYSZMjcjda5OgoKJEcLbdPXQInSZRiDfmNZTK7bfHgCjx0R+GlnVByFuk22TJuS5B6ch1sGFGPEGYQDfoe/E98Aw0PPTvteA301TF8fzZKa+3pObArVTHp/vK3waODcocTgghqLvA4KPp0T/apysGqr5WSa4LgIwxrvKB/gk5b1rQiWddJIyF8AYbxEBarAeanR2nYmsb0avQYFFn1LO/RPgbQ+TB5t1qaK4EYUEojqhkb2Johe8RdnCuRAv+KJ7pbrmsO722/BT5OVB+PFF9ifAS4MTk4UUEluPvkWmZVcIPyGOnSafAE5zHXXIWAreUys1HiWLdcXExlWAj0D6RVnGg7rKXXINpR+L/fxYtjm/waLpQ+iKn6TDDi61NcGfRzOtcRErkYgXzEI=
   on:
     branch: master
-
 cache:
   directories:
-    - "$HOME/.m2"
+  - "$HOME/.m2"
 notifications:
   email: false
