@@ -37,8 +37,12 @@ public class TwoWheelServiceImpl implements  TwoWheelServiceInterface{
         }
         return twoWheelerRepository.save(twoWheel);
     }
-
-
+    public void saveTwoWheel(TwoWheel twoWheel){
+        twoWheelerRepository.save(twoWheel);
+    }
+    public TwoWheel getTwoWheel(String identifier){
+        return twoWheelerRepository.findByIdentifier(identifier);
+    }
 
     public void selectBike(TwoWheel twoWheel) {
         twoWheelerRepository.save(twoWheel);

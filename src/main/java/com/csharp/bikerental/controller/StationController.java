@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class StationController {
     @Autowired
-    private StationServiceFacadeInterface stationService = new StationServiceFacadeImpl(); 
-
-
+    private StationServiceFacadeInterface stationService;
 
     @GetMapping("/Stations")
     public String StationOverview(Model model){

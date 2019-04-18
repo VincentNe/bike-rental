@@ -2,6 +2,7 @@ package com.csharp.bikerental.service.StationService;
 
 import com.csharp.bikerental.persistence.model.Station.Stand;
 import com.csharp.bikerental.persistence.model.Station.Station;
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.repo.StationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -37,5 +38,10 @@ public class StationServiceFacadeImpl implements StationServiceFacadeInterface{
         return stationService.addStandToStation(stand,identifier);
     }
 
-
+    public TwoWheel getBikeFromStand(Long standId){
+        return  stationService.getBikeFromStand(standId);
+    }
+    public void putBikeInStand(Long standId,String twoWheelerId){
+        stationService.putBikeInStand(standId,twoWheelerId);
+    }
 }

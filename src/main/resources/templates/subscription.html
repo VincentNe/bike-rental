@@ -20,21 +20,28 @@
     <tbody>
 
     <tr th:each="subscription : ${subscriptions}">
-        <td >
-            <!--
-            <p th:if="${subscription instanceof T(com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription)" th:text="Pay as You Go"></p>
-            <p th:if="${subscription instanceof T(com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription)" th:text="Annual Subscription"></p>
-            -->
-        </td>
-        <td th:text=" ${subscription.isSubscriptionValid()}"></td>
-        <td th:text=" ${subscription.canSubscriptionBeUsed()}"></td>
-        <td th:text=" ${subscription.timesUsed()}"></td>
+        <td th:text=" ${subscription.getName()}"></td>
+        <td th:text=" ${subscription.isExpired()}"></td>
+        <td th:text=" ${subscription.isAvailable()}"></td>
+        <td th:text=" ${subscription.getTimesUsed()}"></td>
     </tr>
     </tbody>
 </table>
 
 <div id="addSubscription">
-
+    <form th:action="@{/AddSubscription}" method="post">
+        <div add=" ADD Subscription">
+            <div class="form-group">
+                <label for="subscription">Select Subscription:</label>
+                <select class="form-control" id="subscription" name="subscription">
+                    <option>Pay As You Go</option>
+                    <option>Annual Subscription</option>
+                    <option>Month Subscription</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default">Add Subscription</button>
+    </form>
 </div>
 </body>
 </html>

@@ -16,7 +16,18 @@ public abstract class Subscription implements Cloneable {
     protected int currentUses;
 
     protected int maxConcurrentUsers;
+
+    protected SubscriptionEnum name;
+
     //region Getters and Setters
+
+    public SubscriptionEnum getName() {
+        return name;
+    }
+
+    public void setName(SubscriptionEnum name) {
+        this.name = name;
+    }
 
     public long getId() {
         return id;
@@ -54,8 +65,9 @@ public abstract class Subscription implements Cloneable {
 
     public Subscription(){
     }
-    public Subscription(int maxConcurrentUsers){
+    public Subscription(int maxConcurrentUsers,SubscriptionEnum subType){
         this.maxConcurrentUsers = maxConcurrentUsers;
+        this.name = subType;
     }
     //BASED ON DATE
     public abstract boolean isSubscriptionValid();

@@ -32,7 +32,12 @@ public class TwoWheelServiceFacadeImpl implements TwoWheelServiceFacadeInterface
         
         return twoWheelService.getBike();
     }
-
+    public TwoWheel getTwoWheel(String identifier){
+        return twoWheelService.getTwoWheel(identifier);
+    }
+    public void saveTwoWheel(TwoWheel twoWheel){
+        twoWheelService.saveTwoWheel(twoWheel);
+    }
     public void builderBike() {
     	twoWheelService.builderBike();
     }

@@ -1,5 +1,6 @@
 package com.csharp.bikerental.service.SubscriptionService;
 
+import com.csharp.bikerental.dto.SubscriptionDto;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Payment;
 import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
@@ -14,6 +15,7 @@ import com.csharp.bikerental.service.UserService.*;
 import com.csharp.bikerental.service.UserService.UserServiceImpl;
 import com.csharp.bikerental.service.UserService.UserServiceInterface;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class SubscriptionServiceImpl   implements SubscriptionServiceInterface{
         return true;
     }
 
-    public List<Subscription> getUserSubscriptions(String username) {
+    public List<SubscriptionDto> getUserSubscriptions(String username) {
         User user = userService.getUserByUsername(username);
         Customer customer = null;
         try {
@@ -41,8 +43,18 @@ public class SubscriptionServiceImpl   implements SubscriptionServiceInterface{
         }catch (ClassCastException e){
             System.out.println("Not a correct customer");
         }
-        //TODO RETURN DTO INSTEAD OF
-        return customer.getSubscriptions().getSubscriptions();
+        List<SubscriptionDto>  result = new ArrayList<>();
+        for (Subscription sub: customer.getSubscriptions().getSubscriptions()){
+            SubscriptionDto subConverted = new SubscriptionDto();
+            subConverted.setAvailable(sub.canSubscriptionBeUsed());
+            subConverted.setExpired(sub.isSubscriptionValid());
+            subConverted.setTimesUsed(sub.timesUsed());
+            subConverted.setName(sub.getName().name());
+            result.add( subConverted);
+        }
+        return result;
     }
+
+
 
 }

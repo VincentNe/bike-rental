@@ -1,5 +1,6 @@
 package com.csharp.bikerental.service.SubscriptionService;
 
+import com.csharp.bikerental.dto.SubscriptionDto;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Payment;
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
@@ -16,5 +17,5 @@ import org.springframework.stereotype.Service;
 public interface SubscriptionServiceInterface {
 
 	public boolean buySubcription(String username, Payment payment, SubscriptionEnum subscriptionEnum);
-    public List<Subscription> getUserSubscriptions(String username);
+    public List<SubscriptionDto> getUserSubscriptions(String username);
 }

@@ -15,8 +15,8 @@ public class PayAsYouGoSubscription extends  Subscription {
     public PayAsYouGoSubscription(){
 
     }
-    public PayAsYouGoSubscription(int maxConcurrentUsers){
-       super(maxConcurrentUsers);
+    public PayAsYouGoSubscription(int maxConcurrentUsers,SubscriptionEnum subType){
+       super(maxConcurrentUsers,subType);
 
     }
 

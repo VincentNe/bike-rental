@@ -1,5 +1,6 @@
 package com.csharp.bikerental.service.SubscriptionService;
 
+import com.csharp.bikerental.dto.SubscriptionDto;
 import com.csharp.bikerental.persistence.model.Customer;
 import com.csharp.bikerental.persistence.model.Payment;
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
@@ -23,7 +24,7 @@ public class SubscriptionServiceFacadeImpl implements SubscriptionServiceFacadeI
 	 public boolean buySubcription(String username, Payment payment, SubscriptionEnum subscriptionEnum){
 		 return subscriptionService.buySubcription(username, payment, subscriptionEnum);
 	}
-	 public List<Subscription> getUserSubscriptions(String username) {
+	 public List<SubscriptionDto> getUserSubscriptions(String username) {
 		 return subscriptionService.getUserSubscriptions(username);
 	 }
 

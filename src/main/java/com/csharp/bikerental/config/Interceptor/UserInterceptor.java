@@ -54,7 +54,6 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
             ModelAndView modelAndView) throws Exception {
         if (modelAndView != null && !isRedirectView(modelAndView)) {
             if (isUserLogged()) {
-                log.info("add username to model");
                 String loggedUsername = SecurityContextHolder.getContext().getAuthentication().getName();
                 modelAndView.addObject("loggedUsername", loggedUsername);
             }

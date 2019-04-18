@@ -1,6 +1,7 @@
 package com.csharp.bikerental.Service;
 
 import com.csharp.bikerental.BikeRentalApplication;
+import com.csharp.bikerental.dto.SubscriptionDto;
 import com.csharp.bikerental.persistence.model.*;
 import com.csharp.bikerental.persistence.model.Subscriptions.*;
 import com.csharp.bikerental.service.SubscriptionService.SubscriptionServiceFacadeImpl;
@@ -41,10 +42,10 @@ public class SubscriptionServiceTest {
     @Test
     public void buyAPayAsYouGoSubscriptionAsACustomer(){
         subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.PayAsYouGo);
-        List<Subscription> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
+        List<SubscriptionDto> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
         AtomicBoolean containsSubscription = new AtomicBoolean(false);
         subscriptions.forEach(subscription ->  {
-            if(subscription instanceof PayAsYouGoSubscription){
+            if(subscription.getName() == SubscriptionEnum.PayAsYouGo.name()){
                 containsSubscription.set(true);
             }
         });
@@ -55,10 +56,10 @@ public class SubscriptionServiceTest {
     @Test
     public void buyAAnnualSubscriptionAsACustomer(){
         subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.AnnualSubscription);
-        List<Subscription> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
+        List<SubscriptionDto> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
         AtomicBoolean containsSubscription = new AtomicBoolean(false);
         subscriptions.forEach(subscription ->  {
-            if(subscription instanceof AnnualSubscription){
+            if(subscription.getName() == SubscriptionEnum.AnnualSubscription.name()){
                 containsSubscription.set(true);
             }
         });
@@ -67,10 +68,10 @@ public class SubscriptionServiceTest {
     @Test
     public void buyAMonthlySubscriptionAsACustomer(){
         subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.MonthSubscription);
-        List<Subscription> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
+        List<SubscriptionDto> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
         AtomicBoolean containsSubscription = new AtomicBoolean(false);
         subscriptions.forEach(subscription ->  {
-            if(subscription instanceof AnnualSubscription){
+            if(subscription.getName() == SubscriptionEnum.MonthSubscription.name()){
                 containsSubscription.set(true);
             }
         });
@@ -79,14 +80,14 @@ public class SubscriptionServiceTest {
 
     @Test
     public void testInterceptor(){
-        subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.MonthSubscription);
+        subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.AnnualSubscription);
         SubscriptionDispatcher.getInstanceOfDispatcher().registerDispatcher(new ConcreteInterceptor());
         userServiceFacadeInterface.rentBike(u.getId());
 
-        List<Subscription> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
+        List<SubscriptionDto> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
         AtomicBoolean containsSubscription = new AtomicBoolean(false);
         subscriptions.forEach(subscription ->  {
-            if(subscription instanceof AnnualSubscription){
+            if(subscription.getName() == SubscriptionEnum.AnnualSubscription.name()){
                 containsSubscription.set(true);
             }
         });
