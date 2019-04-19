@@ -82,7 +82,7 @@ public class SubscriptionServiceTest {
     public void testInterceptor(){
         subscriptionServiceFacadeInterface.buySubcription(u.getUsername(),new Payment(),SubscriptionEnum.AnnualSubscription);
         SubscriptionDispatcher.getInstanceOfDispatcher().registerDispatcher(new ConcreteInterceptor());
-        userServiceFacadeInterface.rentBike(u.getId());
+        userServiceFacadeInterface.rentBike(u.getUsername(),9l);
 
         List<SubscriptionDto> subscriptions = subscriptionServiceFacadeInterface.getUserSubscriptions(u.getUsername());
         AtomicBoolean containsSubscription = new AtomicBoolean(false);

@@ -60,11 +60,11 @@ public class DemoData {
         Stand stand4 = new Stand();
         Stand stand5 = new Stand();
 
-        stationService.addStandToStation(stand1,station1.getId());
-        stationService.addStandToStation(stand2,station1.getId());
-        stationService.addStandToStation(stand3,station1.getId());
-        stationService.addStandToStation(stand4,station2.getId());
-        stationService.addStandToStation(stand5,station2.getId());
+        stand1= stationService.addStandToStation(stand1,station1.getId());
+        stand2= stationService.addStandToStation(stand2,station1.getId());
+        stand3= stationService.addStandToStation(stand3,station1.getId());
+        stand4= stationService.addStandToStation(stand4,station2.getId());
+        stand5= stationService.addStandToStation(stand5,station2.getId());
 
         //ADD BIKE
         TwoWheelBuilder sBuilder = new TwoWheelBuilder();
@@ -74,8 +74,8 @@ public class DemoData {
         twoWheelService.saveTwoWheel(twoWheel1);
         twoWheelService.saveTwoWheel(twoWheel2);
 
-        stationService.putBikeInStand(stand1.getId(),twoWheel1.getId());
-        stationService.putBikeInStand(stand4.getId(),twoWheel2.getId());
+        stationService.putBikeInStand(stand1.getId(),twoWheel1.getIdentifier());
+        stationService.putBikeInStand(stand4.getId(),twoWheel2.getIdentifier());
 
     }
 }

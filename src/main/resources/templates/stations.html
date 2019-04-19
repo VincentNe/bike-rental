@@ -7,14 +7,37 @@
     <div th:replace="index.html :: imports"></div>
 </head>
 <body>
-<ul th:each="station : ${stations}">
-    <li>
+<div th:replace="index.html :: header"></div>
+
+<ul class="list-group" th:each="station : ${stations}">
+    <li class="list-group-item">
         <p th:text="${station.stationName + ' (' + (station.getTotalStands() - station.getEmptyStands())+ '/' + station.getTotalStands() + ')'}"></p>
-        <ul th:each="stand : ${station.stands}">
-            <li>
+        <ul th:each="stand : ${station.stands}" class="list-group">
+            <li class="list-group-item">
                 <p th:text=" ${stand.id}"></p>
-                <p style="color: red;" th:if=" ${stand.isEmpty()}">Station is empty</p>
-                <p style="color: red;" th:unless=" ${stand.isEmpty()}">Station is Occupied</p>
+                <div th:if=" ${stand.isEmpty()}">
+                    <p style="color: red;" >Station is empty</p>
+                    <form th:action="@{/ReturnBike}" method="post">
+                        <input type="hidden" th:value="${stand.id}" name="standId">
+                        <div class="form-group">
+                            <label for="bikeId">Select Bike:</label>
+                            <select class="form-control" id="bikeId" name="bikeId">
+                                <div th:each="twoWheel : ${bikesInUse}">
+                                    <option th:text=" ${twoWheel.getT().getIdentifier()}"></option>
+                                </div>
+
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-default">Put Bike back</button>
+                    </form>
+                </div>
+                 <div th:unless=" ${stand.isEmpty()}">
+                     <p style="color: green;" >Station is Occupied</p>
+                     <form th:action="@{/RentBike}" method="post">
+                         <input type="hidden" th:value="${stand.id}" name="standId">
+                         <button type="submit" class="btn btn-default">Rent Bike</button>
+                     </form>
+                 </div>
             </li>
         </ul>
     </li>

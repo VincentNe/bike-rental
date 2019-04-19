@@ -1,6 +1,8 @@
 package com.csharp.bikerental.persistence.model.TwoWheel;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,8 +11,8 @@ import javax.persistence.Id;
 @Entity
 public abstract class TwoWheel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String identifier;
 
     String twoWheelType;

@@ -26,8 +26,8 @@ public class UserServiceFacadeImpl implements UserDetailsService,UserServiceFaca
     @Autowired
     UserServiceInterface userService;
 
-    public boolean rentBike(Long userId){
-    	return userService.rentBike(userId);
+    public boolean rentBike(String username, Long standId){
+    	return userService.rentBike(username, standId);
     }
     public void saveUser(User u){
     	userService.saveUser(u);
@@ -60,6 +60,11 @@ public class UserServiceFacadeImpl implements UserDetailsService,UserServiceFaca
         
         return userService.undoEdit(username) ;
 
+    }
+
+    @Override
+    public void returnBike(String username, Long standId, String bikeId) {
+        userService.returnBike( username,  standId,  bikeId);
     }
 
 }

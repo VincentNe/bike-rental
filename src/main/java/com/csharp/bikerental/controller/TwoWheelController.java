@@ -1,6 +1,7 @@
 package com.csharp.bikerental.controller;
 
 
+import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
 import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
 import com.csharp.bikerental.service.TwoWheelService.*;
@@ -11,10 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class TwoWheelController {
+
     @Autowired
     private TwoWheelServiceFacadeInterface twoWheelService = new TwoWheelServiceFacadeImpl();
     private TwoWheelRepository twoWheelRepository;
@@ -36,9 +39,11 @@ public class TwoWheelController {
             e.printStackTrace();
             return ResponseEntity.status(500).body(null);
         }
-
-
     }
+
+
+
+
 
 
 }

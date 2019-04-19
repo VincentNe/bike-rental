@@ -41,7 +41,7 @@ public class ReservationServiceTest {
     private WebApplicationContext context;
 
     @Autowired
-    ReservationServiceFacadeInterface reservationService = new ReservationServiceFacadeImpl();
+    ReservationServiceFacadeInterface reservationService;
 
     @Autowired
     UserRepository userRepository;

@@ -21,19 +21,22 @@ public class PayAsYouGoSubscription extends  Subscription {
     }
 
     @Override
-    public boolean isSubscriptionValid() {
+    public boolean isSubscriptionExpired() {
         return false;
     }
 
     @Override
     public boolean canSubscriptionBeUsed() {
-        if(maxConcurrentUsers >= currentUses) return true;
+        if(currentUses < maxConcurrentUsers) return true;
         return false;
     }
 
     @Override
     public void useSubscription() {
-        if(maxConcurrentUsers > currentUses) currentUses++;
+        if(currentUses < maxConcurrentUsers){
+            currentUses++;
+            timesUsed++;
+        }
         else{
             System.out.print("Max Concurrent uses is reached");
         }
@@ -41,12 +44,11 @@ public class PayAsYouGoSubscription extends  Subscription {
 
     @Override
     public void stopUsingSubscription() {
-        if(currentUses>0)return;
         currentUses--;
     }
 
     @Override
     public int timesUsed() {
-        return 0;
+        return timesUsed;
     }
 }

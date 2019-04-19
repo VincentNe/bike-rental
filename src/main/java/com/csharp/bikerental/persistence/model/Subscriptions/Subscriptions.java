@@ -2,7 +2,6 @@ package com.csharp.bikerental.persistence.model.Subscriptions;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -51,28 +50,27 @@ public class Subscriptions {
     public boolean hasValidSubscription(){
         AtomicBoolean result = new AtomicBoolean(false);
         subscriptions.forEach(subscription -> {
-            if(subscription.isSubscriptionValid()) {
+            if(subscription.isSubscriptionExpired()) {
                 result.set(true);
                 return;
             }
         });
         return result.get();
     }
-    public boolean useSubscription(){
+    public Subscription useSubscription(){
         SubscriptionDispatcher dispatcher = SubscriptionDispatcher.getInstanceOfDispatcher();
         dispatcher.preRequest(subscriptions);
-        List<Subscription> subscriptionUsed = null;
-        AtomicBoolean result = new AtomicBoolean(false);
-        subscriptions.forEach(subscription -> {
-            if(subscription.isSubscriptionValid()) {
+        List<Subscription> subscriptionUsed = new ArrayList<>();
+        for(Subscription subscription: subscriptions){
+            if(subscription.canSubscriptionBeUsed()) {
                 subscription.useSubscription();
                 subscriptionUsed.add(subscription);
-                result.set(true);
-                return;
+                break;
             }
-        });
+        }
         dispatcher.postRequest(subscriptionUsed);
-        return result.get();
+        if(subscriptionUsed.size()>0) return subscriptionUsed.get(0);
+        return  null;
     }
     public void addSubscription(SubscriptionEnum subscriptionEnum){
         Subscription subscription = subscriptionCache.getSubscription(subscriptionEnum);

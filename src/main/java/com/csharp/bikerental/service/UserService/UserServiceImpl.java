@@ -1,11 +1,16 @@
 package com.csharp.bikerental.service.UserService;
 
 import com.csharp.bikerental.persistence.model.*;
+import com.csharp.bikerental.persistence.model.Station.Stand;
 import com.csharp.bikerental.persistence.model.Subscriptions.AnnualSubscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.PayAsYouGoSubscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.Subscription;
 import com.csharp.bikerental.persistence.model.Subscriptions.SubscriptionEnum;
 import com.csharp.bikerental.persistence.model.Employee;
+import com.csharp.bikerental.persistence.model.TwoWheel.TwoWheel;
+import com.csharp.bikerental.persistence.repo.StandRepository;
+import com.csharp.bikerental.persistence.repo.TwoWheelRepository;
+import com.csharp.bikerental.service.StationService.StationServiceImpl;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import com.csharp.bikerental.persistence.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +28,20 @@ public class UserServiceImpl implements UserDetailsService,UserServiceInterface 
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private StationServiceImpl stationService;
 
-    public boolean rentBike(Long userId){
-        User u = userRepository.findById(userId).get();
-        System.out.println("zfzefezfzef");
-        boolean result = u.rentbike();
+    @Autowired
+    private StandRepository standRepository;
+    @Autowired
+    private TwoWheelRepository twoWheelRepository;
+
+
+    public boolean rentBike(String username, Long standId){
+        User u = userRepository.findByUsername(username);
+        Stand stand = stationService.getStandById(standId);
+        boolean result = u.rentbike(stand);
+        standRepository.save(stand);
         userRepository.save(u);
         return  result;
     }
@@ -41,7 +55,6 @@ public class UserServiceImpl implements UserDetailsService,UserServiceInterface 
         return  userRepository.findByUsername(username);
     }
     public void removeUser(Long id){
-
          userRepository.deleteById(id);
     }
 
@@ -93,6 +106,19 @@ public class UserServiceImpl implements UserDetailsService,UserServiceInterface 
         userEdit.undoSave(savers);
         userEdit.toString();
         return userEdit;
+
+    }
+
+    @Override
+    public void returnBike(String username, Long standId, String bikeId) {
+        User u = userRepository.findByUsername(username);
+        if( u.returnBike(bikeId)){
+            Stand stand = stationService.getStandById(standId);
+            TwoWheel twoWheel = twoWheelRepository.findByIdentifier(bikeId);
+            stand.putBikeInStand(twoWheel);
+            standRepository.save(stand);
+            userRepository.save(u);
+        };
 
     }
 

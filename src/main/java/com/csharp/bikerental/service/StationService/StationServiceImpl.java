@@ -41,23 +41,32 @@ public class StationServiceImpl implements  StationServiceInterface{
         return stationRepository.findById(identifier).get();
     }
 
-    public boolean addStandToStation(Stand stand, Long identifier){
+    public Stand addStandToStation(Stand stand, Long identifier){
         Optional<Station> stationOptional = stationRepository.findById(identifier);
-        if(!stationOptional.isPresent())return false;
+        if(!stationOptional.isPresent())return null;
         Station station = stationOptional.get();
+        stand.setId(0);
+        stand = standRepository.save(stand);
         station.addStand(stand);
         stationRepository.save(station);
-        return true;
+        return stand;
     }
     public void putBikeInStand(Long standId,String twoWheelerId){
        Optional<Stand> standOptional =  standRepository.findById(standId);
-       if(!standOptional.isPresent())return;
+       if(!standOptional.isPresent())throw new IllegalArgumentException("Couldn't find stand");
        Stand stand = standOptional.get();
        TwoWheel twoWheeler = twoWheelServiceInterface.getTwoWheel(twoWheelerId);
+       if(twoWheeler == null)  throw new IllegalArgumentException("Couldn't TwoWheeler");
        stand.putBikeInStand(twoWheeler);
        standRepository.save(stand);
 
     }
+
+    @Override
+    public Stand getStandById(Long standId) {
+        return  standRepository.findById(standId).get();
+    }
+
     public TwoWheel getBikeFromStand(Long standId){
         Optional<Stand> standOptional =  standRepository.findById(standId);
         if(!standOptional.isPresent())return null;
